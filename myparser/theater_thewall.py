@@ -1,15 +1,7 @@
+# -*- coding: utf-8 -*-
 import mylib
 import re
-from HTMLParser import HTMLParser
-
-
-class MyHTMLParser(HTMLParser):
-        def handle_starttag(self, tag, attrs):
-            print "Encountered a start tag:", tag
-        def handle_endtag(self, tag):
-            print "Encountered an end tag :", tag
-        def handle_data(self, data):
-            print "Encountered some data  :", data
+import urlparse
 
 class Parser:
     def __init__(self, paras):
@@ -28,17 +20,38 @@ class Parser:
         
     def extractURL(self, data):
         searchObj = re.search(r'href="(.*?)"', data , re.M|re.I|re.S)
-        print searchObj.group(1)
+        print urlparse.urljoin(self.url, searchObj.group(1))
         
 
     def extractPoster(self, data):
         items = re.findall(r'<a class="poster"(.*?)</a>', data , re.M|re.I|re.S)
         for item in items:
-            self.extractTitle(item)
-            self.extractImage(item)
             self.extractURL(item)
+            self.extractTitle(item)
+            self.extractImage(item) #download image
             print
         
+    def extractPrice(self, data):
+        items = re.findall(r'<th>(.*?)</th><td>(.*?)</td>', data , re.M|re.I|re.S)
+        for item in items:
+            if item[0] == "票價":
+                print "Price:", item[1]
+            elif item[0] == "場地":
+                print "Place:", item[1]
+            elif item[0] == "開始":
+                print "Place:", item[1]
+            elif item[0] == "演出":
+                print "Performancer:", item[1]
+            else:
+                print item[0], item[1]
+            print
+    
+    def extractDate(self, data):
+        items = re.findall(r'<div class="m">(.*?)</div>(.*?)<div class="d">(.*?)</div>(.*?)<div class="week">(.*?)</div>', data , re.M|re.I|re.S)
+
+        for item in items:
+            print item[0],item[2],item[4]
+
     def parse(self):
         data = mylib.myurl(self.url)
         data_ret = ""
@@ -48,6 +61,8 @@ class Parser:
                 break
 
         self.extractPoster(data_ret) 
+        self.extractPrice(data_ret)
+        self.extractDate(data_ret)
         #self.write(data_ret)
 
     def write(self, data):
