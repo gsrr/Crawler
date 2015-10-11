@@ -1,0 +1,1536 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" xmlns:fb="https://www.facebook.com/2008/fbml" xmlns:og="http://ogp.me/ns#">
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# music: http://ogp.me/ns/music# video: http://ogp.me/ns/video# indievox: http://ogp.me/ns/fb/indievox#">
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+<meta name="apple-itunes-app" content="app-id=490475438" />
+<title>演唱會活動指南、線上購票 | iNDIEVOX</title>
+<!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<meta name="description" content="http://www.indievox.com iNDIEVOX，indie是「獨立」的意思，vox是拉丁文的「聲音」，所以如果你不習慣念英文，也可以稱我們為「獨立音樂網」。We are iNDIEVOX. Vox stands for voice in Latin, so you can see by our name that we are a indie music website." />
+<meta name="author" content="iNDIEVOX Inc." />
+<meta name="keywords" content="indievox, indie, music, ticket, concert, live, live house, radio, download, mp3, 獨立音樂, 音樂, 門票, 購票, 售票, 下載, 活動, 演唱會, 電台" />
+<meta property="fb:app_id" content="117190508050"/>
+<meta property="fb:admins" content="100000082436586"/>
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@indievox" />
+<meta name="alexaVerifyID" content="uptEcP_WygDWa5nTLH36nrQZdEs" />
+<meta property="og:title" content="演唱會活動指南、線上購票 | iNDIEVOX" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://www.indievox.com/event/upcoming/" />
+<meta property="og:image" content="http://www.indievox.com/iv-asset/image/indievox-touch-icon.png" />
+<meta property="og:description" content="http://www.indievox.com iNDIEVOX，indie是「獨立」的意思，vox是拉丁文的「聲音」，所以如果你不習慣念英文，也可以稱我們為「獨立音樂網」。We are iNDIEVOX. Vox stands for voice in Latin, so you can see by our name that we are a indie music website." />
+<meta property="og:site_name" content="iNDIEVOX" />
+<link rel="alternate" type="application/rss+xml" title="INDIEVOX News" href="http://www.indievox.com/api/xml/rss/news" />
+<link rel="alternate" type="application/rss+xml" title="INDIEVOX Event" href="http://www.indievox.com/api/xml/rss/event" />
+<link rel="alternate" type="application/rss+xml" title="INDIEVOX Review" href="http://www.indievox.com/api/xml/rss/indieview" />        <link rel="shortcut icon" href="/public/image/ico/favicon.ico?v2" />
+<link rel="apple-touch-icon" href="/public/image/ico/indievox-touch-icon.png?v2" />
+<link rel="apple-touch-icon" sizes="72x72" href="/public/image/ico/indievox-touch-icon-72x72.png?v2" />
+<link rel="apple-touch-icon" sizes="114x114" href="/public/image/ico/indievox-touch-icon-114x114.png?v2" />        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600&v=0.0.34" rel="stylesheet" />
+<link href="/public/stylesheet/indievox.min.css?v=0.0.34" rel="stylesheet" />
+<link href="/public/stylesheet/bootstrap.css?v=0.0.34" rel="stylesheet" />
+<link href="/public/javascript/streetvoice-player/player.css?v=0.0.34" rel="stylesheet" />
+<link href="/public/stylesheet/base.css?v=0.0.34" rel="stylesheet" />
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->        <script src="/public/javascript/jquery/1.11.1/jquery.min.js"></script>
+<script src="/public/javascript/jqueryui/1.10.4/jquery-ui.min.js"></script>
+<script src="/public/javascript/angularjs/1.2.7/angular.min.js"></script>
+<script src="/public/javascript/google/jsapi"></script>
+<script src="/public/javascript/jquery-pjax/jquery.pjax.js"></script>
+<script src="/public/javascript/tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+<script src="/public/javascript/indievox.min.js?v=0.1.4.60"></script>
+<script>
+var jplayer_swfPath = '/public/javascript/jQuery.jPlayer.2.2.0/';
+</script>
+<script src="/public/javascript/jQuery.jPlayer.2.2.0/jquery.jplayer.min.js"></script>
+<script src="/public/javascript/streetvoice-player/streetvoice.player.js?v=0.1.4.60"></script>
+<script src="/public/javascript/streetvoice-player/angular.player.js?v=0.1.4.60"></script>
+<script src="/public/javascript/indievox.js.php?v=0.1.4.60" type="text/javascript"></script>
+<script src="/public/javascript/google-analytics.js"></script>
+<script src="http://stage.indievox.com:1337/socket.io/socket.io.js"></script>
+</head>
+<body class="iv-body">
+<div id="fb-root"></div>
+<script type="text/javascript">
+window.fbAsyncInit = function() {
+FB.init({
+appId      : '117190508050', // App ID
+channelUrl : '//www.indievox.com/fb/channel.html', // Channel File
+status     : true, // check login status
+cookie     : true, // enable cookies to allow the server to access the session
+xfbml      : true, // parse XFBML
+oauth      : true,
+version    : 'v2.0'
+});
+
+// Additional initialization code here
+FB.getLoginStatus(function(response) {
+
+if (response.status === 'connected') {
+// the user is logged in and has authenticated your
+// app, and response.authResponse supplies
+// the user's ID, a valid access token, a signed
+// request, and the time the access token
+// and signed request each expire
+//var uid = response.authResponse.userID;
+//var accessToken = response.authResponse.accessToken;
+} else if (response.status === 'not_authorized') {
+// the user is logged in to Facebook,
+// but has not authenticated your app
+} else {
+// the user isn't logged in to Facebook.
+}
+
+});
+
+// register facebook like event
+FB.Event.subscribe('edge.create', function(response) {
+if (response!='') {
+
+var trim_like_resp = response.split("/");
+var like_thing_type = trim_like_resp[3];
+var like_thing_id = trim_like_resp[4];
+var send_to_timeline = false;
+var send_to_timeline_type = '';
+
+if (like_thing_type && like_thing_id) {
+switch (like_thing_type) {
+case 'disc':
+send_to_timeline = true;
+send_to_timeline_type = 'favorite_disc';
+break;
+case 'song':
+send_to_timeline = true;
+send_to_timeline_type = 'favorite_song';
+break;
+case 'news':
+send_to_timeline = true;
+send_to_timeline_type = 'read_music_news';
+break;
+case 'review':
+send_to_timeline = true;
+send_to_timeline_type = 'read_music_review';
+break;
+default:
+break;
+}
+}
+
+if (send_to_timeline) {
+$.ajax({
+url: '/api/sns/thefb/send-to-timeline',
+type: "POST",
+//cache: false,
+data: {timeline_type : send_to_timeline_type, thing_id : like_thing_id},
+dataType: "json",
+beforeSend: function( xhr ) {
+$('#system-message').html('處理中...');
+$('#system-message').show();
+},
+success: function( json_data ) {
+$('#system-message').html('已完成');
+$('#system-message').fadeOut();
+}
+});
+}
+
+}
+});
+};
+
+// Load the SDK Asynchronously
+(function(d, s, id) {
+var js, fjs = d.getElementsByTagName(s)[0];
+if (d.getElementById(id)) return;
+js = d.createElement(s); js.id = id;
+js.src = "//connect.facebook.net/zh_TW/sdk.js";
+fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+</script>
+<script type="text/javascript">
+window.___gcfg = {
+lang: 'zh-TW'
+};
+
+(function() {
+var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+po.src = 'https://apis.google.com/js/plusone.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+})();
+</script>
+<a id="scrolltotop">
+<span class="glyphicon glyphicon-arrow-up"></span>
+</a>
+<script>
+$(document).ready(function() {
+
+$(window).off('scroll');
+$(window).on('scroll', function(){
+if ($(window).scrollTop() > 200) {
+$('#scrolltotop').fadeIn('slow');
+} else {
+$('#scrolltotop').fadeOut('slow');
+}
+});
+
+$(document.body).off('click', '#scrolltotop');
+$(document.body).on('click', '#scrolltotop', function() {
+$(document.body).animate({
+scrollTop: 0
+}, 500);
+return false;
+});
+
+});
+</script>        <div id="wrap">
+<nav id="header" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<div class="container">
+<a class="navbar-brand main-board-pjax" href="/">iNDIEVOX</a>
+<ul class="nav navbar-nav">
+<li id="header-music-tab" class="main-nav dropdown ">
+<a href="/music/" class="main-board-pjax dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">
+音樂                </a>
+<ul class="dropdown-menu text-center">
+<li>
+<a class="main-board-pjax" href="/music/">
+商店首頁                        </a>
+</li>
+<li>
+<a class="main-board-pjax" href="/music/chart/disc">
+排行榜                        </a>
+</li>
+<li>
+<a class="main-board-pjax" href="/music/new-release/disc">
+新鮮貨                        </a>
+</li>
+<li>
+<a class="main-board-pjax" href="/ivboard/">
+告示板                        </a>
+</li>
+<li>
+<a class="main-board-pjax" href="/music/hd-lossless">
+高音質 / 無損音質                        </a>
+</li>
+<li>
+<a class="main-board-pjax" href="/indieview/">
+樂評                        </a>
+</li>
+<li>
+<a class="main-board-pjax" href="/music/label">
+廠牌                        </a>
+</li>
+<li>
+<a class="main-board-pjax" href="/vote/">
+投票                        </a>
+</li>
+</ul>
+</li>
+<li id="header-event-tab" class="main-nav dropdown  active">
+<a href="/event/" class="main-board-pjax dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">
+售票                </a>
+<ul class="dropdown-menu text-center">
+<li>
+<a class="main-board-pjax" href="/event/">
+售票首頁                        </a>
+</li>
+<li>
+<a class="main-board-pjax" href="/event/latest/">
+最新上架                        </a>
+</li>
+<li>
+<a class="main-board-pjax" href="/event/upcoming/">
+所有活動                        </a>
+</li>
+<li>
+<a class="main-board-pjax" href="/event/past/">
+過去活動                        </a>
+</li>
+<li>
+<a class="main-board-pjax" href="/event/partner/">
+所有場館                        </a>
+</li>
+</ul>
+</li>
+<li id="header-news-tab" class="main-nav "><a class="main-board-pjax" href="/news/">新聞</a></li>
+<li id="header-radio-tab" class="main-nav "><a class="main-board-pjax" href="/radio/">電台</a></li>
+<li id="header-vox-tab" class="main-nav ">
+<a id="header-login-vox">VOX</a>
+</li>
+<script>
+$(document).ready(function() {
+
+$(document.body).off('click', '#header-login-vox');
+$(document.body).on('click', '#header-login-vox', function() {
+
+get_login_form('vox');
+
+});
+
+});
+</script>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+<li class="divider-vertical"></li>
+<li id="search-button" class="dropdown">
+<a class="dropdown-toggle" data-toggle="dropdown">
+<span class="glyphicon glyphicon-search"></span>
+</a>
+<div class="dropdown-menu dropdown-full">
+<div class="container">
+<form id="search-form" class="navbar-form row" role="form">
+<div class="col-lg-8 col-lg-offset-2">
+<input type="text" id="search-q" name="q" class="form-control" placeholder="輸入文字開始搜尋...">
+</div>
+</form>
+</div>
+</div>
+</li><!-- /#search-button -->
+<li class="divider-vertical"></li>
+<li id="player-button" class="dropdown">
+<a class="dropdown-toggle">
+<span id="player-button-indicator" class="glyphicon glyphicon-play-c"></span>
+</a>
+</li><!-- /#player-button -->
+<li class="divider-vertical"></li>
+<li class="dropdown">
+<a class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-login"></span><b class="caret"></b></a>
+<ul class="dropdown-menu text-center">
+<li><a id="header-login">登入</a></li>
+<li><a class="main-board-pjax" href="/signup.html">建立帳號</a></li>
+</ul>
+<script>
+$(document).ready(function() {
+
+$(document.body).off('click', '#header-login');
+$(document.body).on('click', '#header-login', function() {
+
+get_login_form();
+
+});
+
+});
+</script>
+</li>                    </ul>
+</div><!-- /.container -->
+</nav><!-- /.navbar -->
+<script>
+
+$(document).ready(function() {
+
+$(document.body).off('submit', '#search-form');
+$(document.body).on('submit', '#search-form', function() {
+if ($('#search-q').val()) {
+$.pjax({
+url: '/search/'+encodeURI($('#search-q').val()),
+container: '#main-board'
+});
+}
+return false;
+});
+
+$(document.body).off('click', '#player-button');
+$(document.body).on('click', '#player-button', function() {
+
+if (    $('#player_wrapper').hasClass('hide')
+||  $('#player_wrapper').hasClass('fadeOutUp')
+) {
+playerAdapter.toggleOpen();
+open_player_control();
+} else {
+playerAdapter.toggleClose();
+hide_player_control();
+}
+
+});
+
+
+
+});
+
+</script>            <div class="container">
+<div id="system-message"></div>
+</div>                        <div id="main-board">
+<div class="page-header">
+<div class="container">
+<div class="row">
+<div class="col-lg-6 col-md-6">
+<ol class="breadcrumb">
+<li><a href="/event/" class="main-board-pjax">售票</a><span class="glyphicon glyphicon-right"></span></li>        <li class="active">
+<a href="/event/upcoming/" class="main-board-pjax">
+所有活動            </a>
+<span class="glyphicon glyphicon-right"></span>
+</li>
+</ol><!-- /breadcrumb -->            </div><!-- /col-lg-5 col-md-5 -->
+<div class="col-lg-6 col-md-6 text-right">
+<div class="btn-group btn-group-sm m-top-1 pull-right" data-toggle="buttons">
+<a href="/event/upcoming/?style=poster&amp;start_date=2015-10-11&amp;end_date=2020-12-31" class="btn btn-default main-board-pjax  active">
+<span class="glyphicon glyphicon-cube"></span>
+</a>
+<a href="/event/upcoming/?style=table&amp;start_date=2015-10-11&amp;end_date=2020-12-31" class="btn btn-default main-board-pjax ">
+<span class="glyphicon glyphicon-list"></span>
+</a>
+</div><!-- /btn-group -->
+<div class="input-prepend input-group input-group-sm pull-right m-top-1 m-right-1 w-200">
+<span class="input-group-btn">
+<button id="time-filter" class="btn btn-default" name="time_filter">
+<i class="glyphicon glyphicon-date fa fa-calendar"></i>
+</button>
+</span>
+<input type="text" id="time-filter-input" class="form-control" value="2015/10/11 - 2020/12/31" readonly="readonly" />
+</div>
+<script>
+$('#time-filter').ready(function() {
+
+$('#time-filter').daterangepicker({
+opens: 'left',
+format: 'YYYY/MM/DD',
+separator: ' - ',
+startDate: '2015/10/11',
+endDate: '2020/12/31'
+}).on('apply', function(ev, picker) {
+
+var start_date = picker.startDate.format('YYYY/MM/DD');
+var end_date = picker.endDate.format('YYYY/MM/DD');
+$('#time-filter-input').val(start_date+' - '+end_date);
+
+start_date = picker.startDate.format('YYYY-MM-DD');
+end_date = picker.endDate.format('YYYY-MM-DD');
+
+$.pjax({
+url : '/event/upcoming/?style=poster&start_date='+start_date+'&end_date='+end_date,
+container : '#main-board'
+});
+
+});
+
+});
+</script>                <form id="event-search-form" role="form">
+<div class="input-group input-group-sm m-top-1 m-right-1 pull-right w-200">
+<input type="text" id="event-search-key-word" class="form-control" placeholder="活動名稱/演出者/場館" value="">
+<span class="input-group-btn">
+<button class="btn btn-default" type="submit">
+<span class="glyphicon glyphicon-search"></span>
+</button>
+</span>
+</div><!-- /input-group -->
+</form>
+<script>
+$(document).ready(function() {
+
+$(document.body).off('submit', '#event-search-form');
+$(document.body).on('submit', '#event-search-form', function() {
+if ($('#event-search-key-word').val()) {
+$.pjax({
+url: '/event/upcoming/'+encodeURI($('#event-search-key-word').val()),
+container: '#main-board'
+});
+}
+return false;
+});
+
+});
+</script>            </div>
+</div><!-- /row -->
+</div><!-- /container -->
+</div><!-- /page-header -->
+<div class="tickets-all-wrapper">
+<div class="container">
+<div id="event-ticket-block" class="panel panel-date">
+<div class="panel-heading">
+<h3 class="panel-title">
+2015/10/11 (日)            </h3>
+</div>
+<div class="panel-body">
+<div class="flex-container">
+<div class="col-lg-2 col-md-2 m-bottom-3">
+<div class="event-block">
+<h3>
+10/11                <small>
+(日)
+</small>
+</h3>
+<a href="/bodyphasestudio/event-post/17307" class="post-block main-board-pjax" title="《電音中篇小說》、《青年信物交換》樂之形音樂週 Music Can Shape Music Week">
+<img class="post-img" src="http://cdn-data.indievox.com/indievox_user/390000/368800/event/event17307240.png?1443341745" alt="《電音中篇小說》、《青年信物交換》樂之形音樂週 Music Can Shape Music Week">
+</a><!-- /post-block -->
+<div class="event-data">
+<a href="/bodyphasestudio/event-post/17307" class="btn btn-buy btn-sm btn-block main-board-pjax">
+購買門票</a>            <h6>
+台北・10/11 14:30            </h6>
+<h5>
+<a href="/bodyphasestudio/event-post/17307" class="main-board-pjax" title="《電音中篇小說》、《青年信物交換》樂之形音樂週 Music Can Shape Music Week">
+《電音中篇小說》、《青年信物交換》樂之形音樂週 Music Can Shape Music Week                </a>
+</h5>
+</div><!-- /event-data -->
+</div><!-- /event-block -->
+</div><!-- /col-lg-2 col-md-2 --><div class="col-lg-2 col-md-2 m-bottom-3">
+<div class="event-block">
+<h3>
+10/11                <small>
+(日)
+</small>
+</h3>
+<a href="/ukebeat/event-post/17182" class="post-block main-board-pjax" title="2015年Corey Fujimoto亞洲巡迴台灣高雄場（工作坊）">
+<img class="post-img" src="http://cdn2-data.indievox.com/indievox_user/390000/366242/event/event17182240.jpg?1441102376" alt="2015年Corey Fujimoto亞洲巡迴台灣高雄場（工作坊）">
+</a><!-- /post-block -->
+<div class="event-data">
+<button type="button" class="btn btn-buy btn-sm btn-block" disabled="disabled">
+請至現場購買</button>            <h6>
+高雄・10/11 15:30            </h6>
+<h5>
+<a href="/ukebeat/event-post/17182" class="main-board-pjax" title="2015年Corey Fujimoto亞洲巡迴台灣高雄場（工作坊）">
+2015年Corey Fujimoto亞洲巡迴台灣高雄場（工作坊）                </a>
+</h5>
+</div><!-- /event-data -->
+</div><!-- /event-block -->
+</div><!-- /col-lg-2 col-md-2 --><div class="col-lg-2 col-md-2 m-bottom-3">
+<div class="event-block">
+<h3>
+10/11                <small>
+(日)
+</small>
+</h3>
+<a href="/jackstudio/event-post/17238" class="post-block main-board-pjax" title="波蘭黑死魔獸 Behemoth 浴血重生台北演唱會">
+<img class="post-img" src="http://cdn3-data.indievox.com/indievox_user/330000/315734/event/event17238240.jpg?1441962302" alt="波蘭黑死魔獸 Behemoth 浴血重生台北演唱會">
+</a><!-- /post-block -->
+<div class="event-data">
+<h6>
+台北・10/11 18:30            </h6>
+<h5>
+<a href="/jackstudio/event-post/17238" class="main-board-pjax" title="波蘭黑死魔獸 Behemoth 浴血重生台北演唱會">
+波蘭黑死魔獸 Behemoth 浴血重生台北演唱會                </a>
+</h5>
+</div><!-- /event-data -->
+</div><!-- /event-block -->
+</div><!-- /col-lg-2 col-md-2 --><div class="col-lg-2 col-md-2 m-bottom-3">
+<div class="event-block">
+<h3>
+10/11                <small>
+(日)
+</small>
+</h3>
+<a href="/google_112605731247576608732/event-post/16828" class="post-block main-board-pjax" title="波蘭黑死魔獸 Behemoth 浴血重生台北演唱會">
+<img class="post-img" src="http://cdn1-data.indievox.com/indievox_user/330000/319301/event/event16828240.jpg?1434777985" alt="波蘭黑死魔獸 Behemoth 浴血重生台北演唱會">
+</a><!-- /post-block -->
+<div class="event-data">
+<h6>
+台北・10/11 18:31            </h6>
+<h5>
+<a href="/google_112605731247576608732/event-post/16828" class="main-board-pjax" title="波蘭黑死魔獸 Behemoth 浴血重生台北演唱會">
+波蘭黑死魔獸 Behemoth 浴血重生台北演唱會                </a>
+</h5>
+</div><!-- /event-data -->
+</div><!-- /event-block -->
+</div><!-- /col-lg-2 col-md-2 --><div class="col-lg-2 col-md-2 m-bottom-3">
+<div class="event-block">
+<h3>
+10/11                <small>
+(日)
+</small>
+</h3>
+<a href="/jackstudio/event-post/17237" class="post-block main-board-pjax" title="波蘭黑死魔獸 Behemoth 浴血重生台北演唱會">
+<img class="post-img" src="http://cdn-data.indievox.com/indievox_user/330000/315734/event/event17237240.jpg?1441962077" alt="波蘭黑死魔獸 Behemoth 浴血重生台北演唱會">
+</a><!-- /post-block -->
+<div class="event-data">
+<h6>
+台北・10/11 18:31            </h6>
+<h5>
+<a href="/jackstudio/event-post/17237" class="main-board-pjax" title="波蘭黑死魔獸 Behemoth 浴血重生台北演唱會">
+波蘭黑死魔獸 Behemoth 浴血重生台北演唱會                </a>
+</h5>
+</div><!-- /event-data -->
+</div><!-- /event-block -->
+</div><!-- /col-lg-2 col-md-2 --><div class="col-lg-2 col-md-2 m-bottom-3">
+<div class="event-block">
+<h3>
+10/11                <small>
+(日)
+</small>
+</h3>
+<a href="/ukebeat/event-post/17191" class="post-block main-board-pjax" title="2015年Corey Fujimoto亞洲巡迴台灣高雄場（演奏會）">
+<img class="post-img" src="http://cdn2-data.indievox.com/indievox_user/390000/366242/event/event17191240.jpg?1441109939" alt="2015年Corey Fujimoto亞洲巡迴台灣高雄場（演奏會）">
+</a><!-- /post-block -->
+<div class="event-data">
+<button type="button" class="btn btn-buy btn-sm btn-block" disabled="disabled">
+請至現場購買</button>            <h6>
+高雄・10/11 19:00            </h6>
+<h5>
+<a href="/ukebeat/event-post/17191" class="main-board-pjax" title="2015年Corey Fujimoto亞洲巡迴台灣高雄場（演奏會）">
+2015年Corey Fujimoto亞洲巡迴台灣高雄場（演奏會）                </a>
+</h5>
+</div><!-- /event-data -->
+</div><!-- /event-block -->
+</div><!-- /col-lg-2 col-md-2 --><div class="col-lg-2 col-md-2 m-bottom-3">
+<div class="event-block">
+<h3>
+10/11                <small>
+(日)
+</small>
+</h3>
+<a href="/pipemusic/event-post/17249" class="post-block main-board-pjax" title="PIPE Sunday Live CustoMood,時空跳躍,備忘錄">
+<img class="post-img" src="http://cdn1-data.indievox.com/indievox_user/180000/156448/event/event17249240.jpg?1442223841" alt="PIPE Sunday Live CustoMood,時空跳躍,備忘錄">
+</a><!-- /post-block -->
+<div class="event-data">
+<button type="button" class="btn btn-buy btn-sm btn-block" disabled="disabled">
+請至現場購買</button>            <h6>
+台北・10/11 19:00            </h6>
+<h5>
+<a href="/pipemusic/event-post/17249" class="main-board-pjax" title="PIPE Sunday Live CustoMood,時空跳躍,備忘錄">
+PIPE Sunday Live CustoMood,時空跳躍,備忘錄                </a>
+</h5>
+</div><!-- /event-data -->
+</div><!-- /event-block -->
+</div><!-- /col-lg-2 col-md-2 --><div class="col-lg-2 col-md-2 m-bottom-3">
+<div class="event-block">
+<h3>
+10/11                <small>
+(日)
+</small>
+</h3>
+<a href="/revolvertaipei/event-post/17296" class="post-block main-board-pjax" title="現代藝術 Contemporary Music（台北）">
+<img class="post-img" src="http://cdn1-data.indievox.com/indievox_user/150000/137760/event/event17296240.jpg?1443011474" alt="現代藝術 Contemporary Music（台北）">
+</a><!-- /post-block -->
+<div class="event-data">
+<button type="button" class="btn btn-buy btn-sm btn-block" disabled="disabled">
+請至現場購買</button>            <h6>
+台北・10/11 19:00            </h6>
+<h5>
+<a href="/revolvertaipei/event-post/17296" class="main-board-pjax" title="現代藝術 Contemporary Music（台北）">
+現代藝術 Contemporary Music（台北）                </a>
+</h5>
+</div><!-- /event-data -->
+</div><!-- /event-block -->
+</div><!-- /col-lg-2 col-md-2 --><div class="col-lg-2 col-md-2 m-bottom-3">
+<div class="event-block">
+<h3>
+10/11                <small>
+(日)
+</small>
+</h3>
+<a href="/riversidemusic/event-post/17200" class="post-block main-board-pjax" title="李沛瑋＋康小白之李白熱音社音樂會">
+<img class="post-img" src="http://cdn1-data.indievox.com/indievox_user/180000/160850/event/event17200240.jpg?1441265852" alt="李沛瑋＋康小白之李白熱音社音樂會">
+</a><!-- /post-block -->
+<div class="event-data">
+<button type="button" class="btn btn-buy btn-sm btn-block" disabled="disabled">
+請至現場購買</button>            <h6>
+台北・10/11 20:00            </h6>
+<h5>
+<a href="/riversidemusic/event-post/17200" class="main-board-pjax" title="李沛瑋＋康小白之李白熱音社音樂會">
+李沛瑋＋康小白之李白熱音社音樂會                </a>
+</h5>
+</div><!-- /event-data -->
+</div><!-- /event-block -->
+</div><!-- /col-lg-2 col-md-2 --><div class="col-lg-2 col-md-2 m-bottom-3">
+<div class="event-block">
+<h3>
+10/11                <small>
+(日)
+</small>
+</h3>
+<a href="/kafka/event-post/17244" class="post-block main-board-pjax" title="10.11 (日) 「摩登中年」吳志寧+黃玠">
+<img class="post-img" src="http://cdn2-data.indievox.com/indievox_user/30000/561/event/event17244240.jpg?1442185297" alt="10.11 (日) 「摩登中年」吳志寧+黃玠">
+</a><!-- /post-block -->
+<div class="event-data">
+<button type="button" class="btn btn-buy btn-sm btn-block" disabled="disabled">
+售完</button>            <h6>
+台北・10/11 20:00            </h6>
+<h5>
+<a href="/kafka/event-post/17244" class="main-board-pjax" title="10.11 (日) 「摩登中年」吳志寧+黃玠">
+10.11 (日) 「摩登中年」吳志寧+黃玠                </a>
+</h5>
+</div><!-- /event-data -->
+</div><!-- /event-block -->
+</div><!-- /col-lg-2 col-md-2 --><div class="col-lg-2 col-md-2 m-bottom-3">
+<div class="event-block">
+<h3>
+10/11                <small>
+(日)
+</small>
+</h3>
+<a href="/apamini/event-post/17316" class="post-block main-board-pjax" title="ARCPLG 羣島、康士坦的變化球">
+<img class="post-img" src="http://cdn2-data.indievox.com/indievox_user/360000/339937/event/event17316240.jpg?1443252050" alt="ARCPLG 羣島、康士坦的變化球">
+</a><!-- /post-block -->
+<div class="event-data">
+<button type="button" class="btn btn-buy btn-sm btn-block" disabled="disabled">
+請至現場購買</button>            <h6>
+台北・10/11 20:00            </h6>
+<h5>
+<a href="/apamini/event-post/17316" class="main-board-pjax" title="ARCPLG 羣島、康士坦的變化球">
+ARCPLG 羣島、康士坦的變化球                </a>
+</h5>
+</div><!-- /event-data -->
+</div><!-- /event-block -->
+</div><!-- /col-lg-2 col-md-2 -->            </div>
+</div>
+<div class="panel-heading">
+<h3 class="panel-title">
+2015/10/13 (二)            </h3>
+</div>
+<div class="panel-body">
+<div class="flex-container">
+<div class="col-lg-2 col-md-2 m-bottom-3">
+<div class="event-block">
+<h3>
+10/13                <small>
+(二)
+</small>
+</h3>
+<a href="/riversidemusic/event-post/17277" class="post-block main-board-pjax" title="游移少女 / 舒涵 Shellen">
+<img class="post-img" src="http://cdn3-data.indievox.com/indievox_user/180000/160850/event/event17277240.jpg?1442923831" alt="游移少女 / 舒涵 Shellen">
+</a><!-- /post-block -->
+<div class="event-data">
+<a href="/riversidemusic/event-post/17277" class="btn btn-buy btn-sm btn-block main-board-pjax">
+購買門票</a>            <h6>
+台北・10/13 21:00            </h6>
+<h5>
+<a href="/riversidemusic/event-post/17277" class="main-board-pjax" title="游移少女 / 舒涵 Shellen">
+游移少女 / 舒涵 Shellen                </a>
+</h5>
+</div><!-- /event-data -->
+</div><!-- /event-block -->
+</div><!-- /col-lg-2 col-md-2 -->            </div>
+</div>
+<div class="panel-heading">
+<h3 class="panel-title">
+2015/10/14 (三)            </h3>
+</div>
+<div class="panel-body">
+<div class="flex-container">
+<div class="col-lg-2 col-md-2 m-bottom-3">
+<div class="event-block">
+<h3>
+10/14                <small>
+(三)
+</small>
+</h3>
+<a href="/legacytc/event-post/17223" class="post-block main-board-pjax" title="【Forest Night】All about Jazz-天方爵士">
+<img class="post-img" src="http://cdn2-data.indievox.com/indievox_user/330000/308382/event/event17223240.jpg?1441692274" alt="【Forest Night】All about Jazz-天方爵士">
+</a><!-- /post-block -->
+<div class="event-data">
+<a href="/legacytc/event-post/17223" class="btn btn-buy btn-sm btn-block main-board-pjax">
+購買門票</a>            <h6>
+台中・10/14 19:30            </h6>
+<h5>
+<a href="/legacytc/event-post/17223" class="main-board-pjax" title="【Forest Night】All about Jazz-天方爵士">
+【Forest Night】All about Jazz-天方爵士                </a>
+</h5>
+</div><!-- /event-data -->
+</div><!-- /event-block -->
+</div><!-- /col-lg-2 col-md-2 --><div class="col-lg-2 col-md-2 m-bottom-3">
+<div class="event-block">
+<h3>
+10/14                <small>
+(三)
+</small>
+</h3>
+<a href="/riversidemusic/event-post/17340" class="post-block main-board-pjax" title="《 河岸聲現 》GJ蔣卓嘉+激膚My Skin Against Your Skin">
+<img class="post-img" src="http://cdn2-data.indievox.com/indievox_user/180000/160850/event/event17340240.jpg?1443692137" alt="《 河岸聲現 》GJ蔣卓嘉+激膚My Skin Against Your Skin">
+</a><!-- /post-block -->
+<div class="event-data">
+<h6>
+台北・10/14 20:00            </h6>
+<h5>
+<a href="/riversidemusic/event-post/17340" class="main-board-pjax" title="《 河岸聲現 》GJ蔣卓嘉+激膚My Skin Against Your Skin">
+《 河岸聲現 》GJ蔣卓嘉+激膚My Skin Against Your Skin                </a>
+</h5>
+</div><!-- /event-data -->
+</div><!-- /event-block -->
+</div><!-- /col-lg-2 col-md-2 --><div class="col-lg-2 col-md-2 m-bottom-3">
+<div class="event-block">
+<h3>
+10/14                <small>
+(三)
+</small>
+</h3>
+<a href="/riversidemusic/event-post/17287" class="post-block main-board-pjax" title="隱分子 / Replay">
+<img class="post-img" src="http://cdn1-data.indievox.com/indievox_user/180000/160850/event/event17287240.jpg?1443593874" alt="隱分子 / Replay">
+</a><!-- /post-block -->
+<div class="event-data">
+<a href="/riversidemusic/event-post/17287" class="btn btn-buy btn-sm btn-block main-board-pjax">
+購買門票</a>            <h6>
+台北・10/14 21:00            </h6>
+<h5>
+<a href="/riversidemusic/event-post/17287" class="main-board-pjax" title="隱分子 / Replay">
+隱分子 / Replay                </a>
+</h5>
+</div><!-- /event-data -->
+</div><!-- /event-block -->
+</div><!-- /col-lg-2 col-md-2 -->            </div>
+</div>
+<div class="panel-heading">
+<h3 class="panel-title">
+2015/10/15 (四)            </h3>
+</div>
+<div class="panel-body">
+<div class="flex-container">
+<div class="col-lg-2 col-md-2 m-bottom-3">
+<div class="event-block">
+<h3>
+10/15                <small>
+(四)
+</small>
+</h3>
+<a href="/legacy/event-post/17251" class="post-block main-board-pjax" title="The Next Big Thing 大團誕生（開發場8）">
+<img class="post-img" src="http://cdn3-data.indievox.com/indievox_user/180000/150325/event/event17251240.jpg?1442301729" alt="The Next Big Thing 大團誕生（開發場8）">
+</a><!-- /post-block -->
+<div class="event-data">
+<a href="/legacy/event-post/17251" class="btn btn-buy btn-sm btn-block main-board-pjax">
+購買門票</a>            <h6>
+台北・10/15 20:00            </h6>
+<h5>
+<a href="/legacy/event-post/17251" class="main-board-pjax" title="The Next Big Thing 大團誕生（開發場8）">
+The Next Big Thing 大團誕生（開發場8）                </a>
+</h5>
+</div><!-- /event-data -->
+</div><!-- /event-block -->
+</div><!-- /col-lg-2 col-md-2 --><div class="col-lg-2 col-md-2 m-bottom-3">
+<div class="event-block">
+<h3>
+10/15                <small>
+(四)
+</small>
+</h3>
+<a href="/riversidemusic/event-post/17228" class="post-block main-board-pjax" title="王彙筑 / 陳暉宜《 跟你走 》">
+<img class="post-img" src="http://cdn3-data.indievox.com/indievox_user/180000/160850/event/event17228240.jpg?1443001554" alt="王彙筑 / 陳暉宜《 跟你走 》">
+</a><!-- /post-block -->
+<div class="event-data">
+<a href="/riversidemusic/event-post/17228" class="btn btn-buy btn-sm btn-block main-board-pjax">
+購買門票</a>            <h6>
+台北・10/15 21:00            </h6>
+<h5>
+<a href="/riversidemusic/event-post/17228" class="main-board-pjax" title="王彙筑 / 陳暉宜《 跟你走 》">
+王彙筑 / 陳暉宜《 跟你走 》                </a>
+</h5>
+</div><!-- /event-data -->
+</div><!-- /event-block -->
+</div><!-- /col-lg-2 col-md-2 -->            </div>
+</div>
+<div class="panel-heading">
+<h3 class="panel-title">
+2015/10/16 (五)            </h3>
+</div>
+<div class="panel-body">
+<div class="flex-container">
+<div class="col-lg-2 col-md-2 m-bottom-3">
+<div class="event-block">
+<h3>
+10/16                <small>
+(五)
+</small>
+</h3>
+<a href="/riversidemusic/event-post/17341" class="post-block main-board-pjax" title="第二屆【全國大專院校原創音樂高峰會】韶韻旋弦‧競在河岸">
+<img class="post-img" src="http://cdn3-data.indievox.com/indievox_user/180000/160850/event/event17341240.jpg?1443692259" alt="第二屆【全國大專院校原創音樂高峰會】韶韻旋弦‧競在河岸">
+</a><!-- /post-block -->
+<div class="event-data">
+<h6>
+台北・10/16 19:00            </h6>
+<h5>
+<a href="/riversidemusic/event-post/17341" class="main-board-pjax" title="第二屆【全國大專院校原創音樂高峰會】韶韻旋弦‧競在河岸">
+第二屆【全國大專院校原創音樂高峰會】韶韻旋弦‧競在河岸                </a>
+</h5>
+</div><!-- /event-data -->
+</div><!-- /event-block -->
+</div><!-- /col-lg-2 col-md-2 --><div class="col-lg-2 col-md-2 m-bottom-3">
+<div class="event-block">
+<h3>
+10/16                <small>
+(五)
+</small>
+</h3>
+<a href="/inourtime/event-post/17335" class="post-block main-board-pjax" title="方治權Funcal &lt;感景轉來&gt;發表會 高雄場。In Our Time">
+<img class="post-img" src="http://cdn3-data.indievox.com/indievox_user/210000/199459/event/event17335240.jpg?1443689258" alt="方治權Funcal &lt;感景轉來&gt;發表會 高雄場。In Our Time">
+</a><!-- /post-block -->
+<div class="event-data">
+<h6>
+高雄・10/16 19:30            </h6>
+<h5>
+<a href="/inourtime/event-post/17335" class="main-board-pjax" title="方治權Funcal &lt;感景轉來&gt;發表會 高雄場。In Our Time">
+方治權Funcal &lt;感景轉來&gt;發表會 高雄場。In Our Time                </a>
+</h5>
+</div><!-- /event-data -->
+</div><!-- /event-block -->
+</div><!-- /col-lg-2 col-md-2 --><div class="col-lg-2 col-md-2 m-bottom-3">
+<div class="event-block">
+<h3>
+10/16                <small>
+(五)
+</small>
+</h3>
+<a href="/scsrc/event-post/17095" class="post-block main-board-pjax" title="徐懷鈺『我還是那個我』演唱會＠Shining The Life 公益音樂節">
+<img class="post-img" src="http://cdn1-data.indievox.com/indievox_user/390000/363679/event/event17095240.jpg?1440048664" alt="徐懷鈺『我還是那個我』演唱會＠Shining The Life 公益音樂節">
+</a><!-- /post-block -->
+<div class="event-data">
+<button type="button" class="btn btn-buy btn-sm btn-block" disabled="disabled">
+售完</button>            <h6>
+台北・10/16 20:00            </h6>
+<h5>
+<a href="/scsrc/event-post/17095" class="main-board-pjax" title="徐懷鈺『我還是那個我』演唱會＠Shining The Life 公益音樂節">
+徐懷鈺『我還是那個我』演唱會＠Shining The Life 公益音樂節                </a>
+</h5>
+</div><!-- /event-data -->
+</div><!-- /event-block -->
+</div><!-- /col-lg-2 col-md-2 --><div class="col-lg-2 col-md-2 m-bottom-3">
+<div class="event-block">
+<h3>
+10/16                <small>
+(五)
+</small>
+</h3>
+<a href="/apamini/event-post/17264" class="post-block main-board-pjax" title="聽覺大對決：舒舒  ShuShu">
+<img class="post-img" src="http://cdn1-data.indievox.com/indievox_user/360000/339937/event/event17264240.jpg?1442734970" alt="聽覺大對決：舒舒  ShuShu">
+</a><!-- /post-block -->
+<div class="event-data">
+<a href="/apamini/event-post/17264" class="btn btn-buy btn-sm btn-block main-board-pjax">
+購買門票</a>            <h6>
+台北・10/16 20:00            </h6>
+<h5>
+<a href="/apamini/event-post/17264" class="main-board-pjax" title="聽覺大對決：舒舒  ShuShu">
+聽覺大對決：舒舒  ShuShu                </a>
+</h5>
+</div><!-- /event-data -->
+</div><!-- /event-block -->
+</div><!-- /col-lg-2 col-md-2 --><div class="col-lg-2 col-md-2 m-bottom-3">
+<div class="event-block">
+<h3>
+10/16                <small>
+(五)
+</small>
+</h3>
+<a href="/kafka/event-post/17348" class="post-block main-board-pjax" title="10.16 (五) HUSH 機會與命運 機會場">
+<img class="post-img" src="http://cdn2-data.indievox.com/indievox_user/30000/561/event/event17348240.jpg?1443838992" alt="10.16 (五) HUSH 機會與命運 機會場">
+</a><!-- /post-block -->
+<div class="event-data">
+<button type="button" class="btn btn-buy btn-sm btn-block" disabled="disabled">
+售完</button>            <h6>
+台北・10/16 20:00            </h6>
+<h5>
+<a href="/kafka/event-post/17348" class="main-board-pjax" title="10.16 (五) HUSH 機會與命運 機會場">
+10.16 (五) HUSH 機會與命運 機會場                </a>
+</h5>
+</div><!-- /event-data -->
+</div><!-- /event-block -->
+</div><!-- /col-lg-2 col-md-2 -->            </div>
+</div>
+<div class="panel-heading">
+<h3 class="panel-title">
+2015/10/17 (六)            </h3>
+</div>
+<div class="panel-body">
+<div class="flex-container">
+<div class="col-lg-2 col-md-2 m-bottom-3">
+<div class="event-block">
+<h3>
+10/17                <small>
+(六)
+</small>
+</h3>
+<a href="/showhand1010/event-post/17356" class="post-block main-board-pjax" title="2015桃園鐵玫瑰音樂節">
+<img class="post-img" src="http://cdn-data.indievox.com/indievox_user/360000/330057/event/event17356240.jpg?1444046171" alt="2015桃園鐵玫瑰音樂節">
+</a><!-- /post-block -->
+<div class="event-data">
+<h6>
+桃園・10/17 14:00            </h6>
+<h5>
+<a href="/showhand1010/event-post/17356" class="main-board-pjax" title="2015桃園鐵玫瑰音樂節">
+2015桃園鐵玫瑰音樂節                </a>
+</h5>
+</div><!-- /event-data -->
+</div><!-- /event-block -->
+</div><!-- /col-lg-2 col-md-2 --><div class="col-lg-2 col-md-2 m-bottom-3">
+<div class="event-block">
+<h3>
+10/17                <small>
+(六)
+</small>
+</h3>
+<a href="/scsrc/event-post/17206" class="post-block main-board-pjax" title="李度『好想好想』演唱會＠Shining The Life 公益音樂節">
+<img class="post-img" src="http://cdn1-data.indievox.com/indievox_user/390000/363679/event/event17206240.jpg?1441605602" alt="李度『好想好想』演唱會＠Shining The Life 公益音樂節">
+</a><!-- /post-block -->
+<div class="event-data">
+<a href="/scsrc/event-post/17206" class="btn btn-buy btn-sm btn-block main-board-pjax">
+購買門票</a>            <h6>
+台北・10/17 15:00            </h6>
+<h5>
+<a href="/scsrc/event-post/17206" class="main-board-pjax" title="李度『好想好想』演唱會＠Shining The Life 公益音樂節">
+李度『好想好想』演唱會＠Shining The Life 公益音樂節                </a>
+</h5>
+</div><!-- /event-data -->
+</div><!-- /event-block -->
+</div><!-- /col-lg-2 col-md-2 --><div class="col-lg-2 col-md-2 m-bottom-3">
+<div class="event-block">
+<h3>
+10/17                <small>
+(六)
+</small>
+</h3>
+<a href="/apamini/event-post/17193" class="post-block main-board-pjax" title="PARTY REALLY SICK!">
+<img class="post-img" src="http://cdn1-data.indievox.com/indievox_user/360000/339937/event/event17193240.png?1441172130" alt="PARTY REALLY SICK!">
+</a><!-- /post-block -->
+<div class="event-data">
+<a href="/apamini/event-post/17193" class="btn btn-buy btn-sm btn-block main-board-pjax">
+購買門票</a>            <h6>
+台北・10/17 19:00            </h6>
+<h5>
+<a href="/apamini/event-post/17193" class="main-board-pjax" title="PARTY REALLY SICK!">
+PARTY REALLY SICK!                </a>
+</h5>
+</div><!-- /event-data -->
+</div><!-- /event-block -->
+</div><!-- /col-lg-2 col-md-2 --><div class="col-lg-2 col-md-2 m-bottom-3">
+<div class="event-block">
+<h3>
+10/17                <small>
+(六)
+</small>
+</h3>
+<a href="/inourtime/event-post/17218" class="post-block main-board-pjax" title="高閑至  In Our Time x 半九十 年度特別企劃">
+<img class="post-img" src="http://cdn2-data.indievox.com/indievox_user/210000/199459/event/event17218240.jpg?1441616570" alt="高閑至  In Our Time x 半九十 年度特別企劃">
+</a><!-- /post-block -->
+<div class="event-data">
+<h6>
+高雄・10/17 19:00            </h6>
+<h5>
+<a href="/inourtime/event-post/17218" class="main-board-pjax" title="高閑至  In Our Time x 半九十 年度特別企劃">
+高閑至  In Our Time x 半九十 年度特別企劃                </a>
+</h5>
+</div><!-- /event-data -->
+</div><!-- /event-block -->
+</div><!-- /col-lg-2 col-md-2 --><div class="col-lg-2 col-md-2 m-bottom-3">
+<div class="event-block">
+<h3>
+10/17                <small>
+(六)
+</small>
+</h3>
+<a href="/isp28476250/event-post/17234" class="post-block main-board-pjax" title="&lt;&lt;就是愛客樂&gt;&gt;">
+<img class="post-img" src="http://cdn1-data.indievox.com/indievox_user/390000/367204/event/event17234240.jpg?1441874833" alt="&lt;&lt;就是愛客樂&gt;&gt;">
+</a><!-- /post-block -->
+<div class="event-data">
+<a href="/isp28476250/event-post/17234" class="btn btn-buy btn-sm btn-block main-board-pjax">
+購買門票</a>            <h6>
+台北・10/17 19:30            </h6>
+<h5>
+<a href="/isp28476250/event-post/17234" class="main-board-pjax" title="&lt;&lt;就是愛客樂&gt;&gt;">
+&lt;&lt;就是愛客樂&gt;&gt;                </a>
+</h5>
+</div><!-- /event-data -->
+</div><!-- /event-block -->
+</div><!-- /col-lg-2 col-md-2 --><div class="col-lg-2 col-md-2 m-bottom-3">
+<div class="event-block">
+<h3>
+10/17                <small>
+(六)
+</small>
+</h3>
+<a href="/scsrc/event-post/17205" class="post-block main-board-pjax" title="林曉培『再次心動』演唱會＠Shining The Life 公益音樂節">
+<img class="post-img" src="http://cdn1-data.indievox.com/indievox_user/390000/363679/event/event17205240.jpg?1441605602" alt="林曉培『再次心動』演唱會＠Shining The Life 公益音樂節">
+</a><!-- /post-block -->
+<div class="event-data">
+<a href="/scsrc/event-post/17205" class="btn btn-buy btn-sm btn-block main-board-pjax">
+購買門票</a>            <h6>
+台北・10/17 20:00            </h6>
+<h5>
+<a href="/scsrc/event-post/17205" class="main-board-pjax" title="林曉培『再次心動』演唱會＠Shining The Life 公益音樂節">
+林曉培『再次心動』演唱會＠Shining The Life 公益音樂節                </a>
+</h5>
+</div><!-- /event-data -->
+</div><!-- /event-block -->
+</div><!-- /col-lg-2 col-md-2 --><div class="col-lg-2 col-md-2 m-bottom-3">
+<div class="event-block">
+<h3>
+10/17                <small>
+(六)
+</small>
+</h3>
+<a href="/therelivehouse/event-post/17250" class="post-block main-board-pjax" title="小福氣 鐵觀音家庭小聚 with 皇后皮箱">
+<img class="post-img" src="http://cdn1-data.indievox.com/indievox_user/180000/164825/event/event17250240.png?1443604016" alt="小福氣 鐵觀音家庭小聚 with 皇后皮箱">
+</a><!-- /post-block -->
+<div class="event-data">
+<a href="/therelivehouse/event-post/17250" class="btn btn-buy btn-sm btn-block main-board-pjax">
+購買門票</a>            <h6>
+桃園・10/17 20:00            </h6>
+<h5>
+<a href="/therelivehouse/event-post/17250" class="main-board-pjax" title="小福氣 鐵觀音家庭小聚 with 皇后皮箱">
+小福氣 鐵觀音家庭小聚 with 皇后皮箱                </a>
+</h5>
+</div><!-- /event-data -->
+</div><!-- /event-block -->
+</div><!-- /col-lg-2 col-md-2 --><div class="col-lg-2 col-md-2 m-bottom-3">
+<div class="event-block">
+<h3>
+10/17                <small>
+(六)
+</small>
+</h3>
+<a href="/forro/event-post/17330" class="post-block main-board-pjax" title="『如果生命是一個調色盤，我願意盡力揮灑它』。安妮塔克Annie &amp; Taco台中專場">
+<img class="post-img" src="http://cdn1-data.indievox.com/indievox_user/180000/178865/event/event17330240.jpg?1443601777" alt="『如果生命是一個調色盤，我願意盡力揮灑它』。安妮塔克Annie &amp; Taco台中專場">
+</a><!-- /post-block -->
+<div class="event-data">
+<a href="/forro/event-post/17330" class="btn btn-buy btn-sm btn-block main-board-pjax">
+購買門票</a>            <h6>
+台中・10/17 20:00            </h6>
+<h5>
+<a href="/forro/event-post/17330" class="main-board-pjax" title="『如果生命是一個調色盤，我願意盡力揮灑它』。安妮塔克Annie &amp; Taco台中專場">
+『如果生命是一個調色盤，我願意盡力揮灑它』。安妮塔克Annie &amp; Taco台中專場                </a>
+</h5>
+</div><!-- /event-data -->
+</div><!-- /event-block -->
+</div><!-- /col-lg-2 col-md-2 --><div class="col-lg-2 col-md-2 m-bottom-3">
+<div class="event-block">
+<h3>
+10/17                <small>
+(六)
+</small>
+</h3>
+<a href="/riversidemusic/event-post/17342" class="post-block main-board-pjax" title="music soul , Sorry about late">
+<img class="post-img" src="http://cdn3-data.indievox.com/indievox_user/180000/160850/event/event17342240.JPG?1443692351" alt="music soul , Sorry about late">
+</a><!-- /post-block -->
+<div class="event-data">
+<h6>
+台北・10/17 20:00            </h6>
+<h5>
+<a href="/riversidemusic/event-post/17342" class="main-board-pjax" title="music soul , Sorry about late">
+music soul , Sorry about late                </a>
+</h5>
+</div><!-- /event-data -->
+</div><!-- /event-block -->
+</div><!-- /col-lg-2 col-md-2 --><div class="col-lg-2 col-md-2 m-bottom-3">
+<div class="event-block">
+<h3>
+10/17                <small>
+(六)
+</small>
+</h3>
+<a href="/tcrc2007/event-post/17138" class="post-block main-board-pjax" title="微酸的偷窺狂 Acidy Peeping Tom , Dirty Fiction 髒小說 , 烏賊紳士GentleSquid">
+<img class="post-img" src="http://cdn2-data.indievox.com/indievox_user/30000/29325/event/event17138240.jpg?1440388229" alt="微酸的偷窺狂 Acidy Peeping Tom , Dirty Fiction 髒小說 , 烏賊紳士GentleSquid">
+</a><!-- /post-block -->
+<div class="event-data">
+<h6>
+台南・10/17 21:30            </h6>
+<h5>
+<a href="/tcrc2007/event-post/17138" class="main-board-pjax" title="微酸的偷窺狂 Acidy Peeping Tom , Dirty Fiction 髒小說 , 烏賊紳士GentleSquid">
+微酸的偷窺狂 Acidy Peeping Tom , Dirty Fiction 髒小說 , 烏賊紳士GentleSquid                </a>
+</h5>
+</div><!-- /event-data -->
+</div><!-- /event-block -->
+</div><!-- /col-lg-2 col-md-2 -->            </div>
+</div>
+<div class="panel-heading">
+<h3 class="panel-title">
+2015/10/18 (日)            </h3>
+</div>
+<div class="panel-body">
+<div class="flex-container">
+<div class="col-lg-2 col-md-2 m-bottom-3">
+<div class="event-block">
+<h3>
+10/18                <small>
+(日)
+</small>
+</h3>
+<a href="/scsrc/event-post/17148" class="post-block main-board-pjax" title="蕭閎仁『因為我愛你』演唱會＠Shining The Life 公益音樂節">
+<img class="post-img" src="http://cdn2-data.indievox.com/indievox_user/390000/363679/event/event17148240.jpg?1440471602" alt="蕭閎仁『因為我愛你』演唱會＠Shining The Life 公益音樂節">
+</a><!-- /post-block -->
+<div class="event-data">
+<a href="/scsrc/event-post/17148" class="btn btn-buy btn-sm btn-block main-board-pjax">
+購買門票</a>            <h6>
+台北・10/18 15:00            </h6>
+<h5>
+<a href="/scsrc/event-post/17148" class="main-board-pjax" title="蕭閎仁『因為我愛你』演唱會＠Shining The Life 公益音樂節">
+蕭閎仁『因為我愛你』演唱會＠Shining The Life 公益音樂節                </a>
+</h5>
+</div><!-- /event-data -->
+</div><!-- /event-block -->
+</div><!-- /col-lg-2 col-md-2 --><div class="col-lg-2 col-md-2 m-bottom-3">
+<div class="event-block">
+<h3>
+10/18                <small>
+(日)
+</small>
+</h3>
+<a href="/inourtime/event-post/17034" class="post-block main-board-pjax" title="Pink Haze平克孩子 最新專輯&lt;關於我們&gt;發表演唱會">
+<img class="post-img" src="http://cdn-data.indievox.com/indievox_user/210000/199459/event/event17034240.jpg?1443416256" alt="Pink Haze平克孩子 最新專輯&lt;關於我們&gt;發表演唱會">
+</a><!-- /post-block -->
+<div class="event-data">
+<h6>
+高雄・10/18 19:00            </h6>
+<h5>
+<a href="/inourtime/event-post/17034" class="main-board-pjax" title="Pink Haze平克孩子 最新專輯&lt;關於我們&gt;發表演唱會">
+Pink Haze平克孩子 最新專輯&lt;關於我們&gt;發表演唱會                </a>
+</h5>
+</div><!-- /event-data -->
+</div><!-- /event-block -->
+</div><!-- /col-lg-2 col-md-2 --><div class="col-lg-2 col-md-2 m-bottom-3">
+<div class="event-block">
+<h3>
+10/18                <small>
+(日)
+</small>
+</h3>
+<a href="/apamini/event-post/17226" class="post-block main-board-pjax" title="鋼鐵娘演唱會：AGG、Joker、Greedy Black Hole  貪婪黑洞、Sound Base">
+<img class="post-img" src="http://cdn3-data.indievox.com/indievox_user/360000/339937/event/event17226240.jpg?1441705489" alt="鋼鐵娘演唱會：AGG、Joker、Greedy Black Hole  貪婪黑洞、Sound Base">
+</a><!-- /post-block -->
+<div class="event-data">
+<a href="/apamini/event-post/17226" class="btn btn-buy btn-sm btn-block main-board-pjax">
+購買門票</a>            <h6>
+台北・10/18 19:30            </h6>
+<h5>
+<a href="/apamini/event-post/17226" class="main-board-pjax" title="鋼鐵娘演唱會：AGG、Joker、Greedy Black Hole  貪婪黑洞、Sound Base">
+鋼鐵娘演唱會：AGG、Joker、Greedy Black Hole  貪婪黑洞、Sound Base                </a>
+</h5>
+</div><!-- /event-data -->
+</div><!-- /event-block -->
+</div><!-- /col-lg-2 col-md-2 --><div class="col-lg-2 col-md-2 m-bottom-3">
+<div class="event-block">
+<h3>
+10/18                <small>
+(日)
+</small>
+</h3>
+<a href="/masaloft/event-post/17276" class="post-block main-board-pjax" title="楊曉恩Simple Life 爵士音樂會">
+<img class="post-img" src="http://cdn2-data.indievox.com/indievox_user/210000/187818/event/event17276240.png?1442901696" alt="楊曉恩Simple Life 爵士音樂會">
+</a><!-- /post-block -->
+<div class="event-data">
+<a href="/masaloft/event-post/17276" class="btn btn-buy btn-sm btn-block main-board-pjax">
+購買門票</a>            <h6>
+台南・10/18 19:30            </h6>
+<h5>
+<a href="/masaloft/event-post/17276" class="main-board-pjax" title="楊曉恩Simple Life 爵士音樂會">
+楊曉恩Simple Life 爵士音樂會                </a>
+</h5>
+</div><!-- /event-data -->
+</div><!-- /event-block -->
+</div><!-- /col-lg-2 col-md-2 --><div class="col-lg-2 col-md-2 m-bottom-3">
+<div class="event-block">
+<h3>
+10/18                <small>
+(日)
+</small>
+</h3>
+<a href="/legacymini/event-post/17281" class="post-block main-board-pjax" title="【Legacy mini @ amba】【集合吧！小王子】 - 王上頡專輯演唱會">
+<img class="post-img" src="http://cdn3-data.indievox.com/indievox_user/180000/170146/event/event17281240.jpg?1442914467" alt="【Legacy mini @ amba】【集合吧！小王子】 - 王上頡專輯演唱會">
+</a><!-- /post-block -->
+<div class="event-data">
+<a href="/legacymini/event-post/17281" class="btn btn-buy btn-sm btn-block main-board-pjax">
+購買門票</a>            <h6>
+台北・10/18 19:30            </h6>
+<h5>
+<a href="/legacymini/event-post/17281" class="main-board-pjax" title="【Legacy mini @ amba】【集合吧！小王子】 - 王上頡專輯演唱會">
+【Legacy mini @ amba】【集合吧！小王子】 - 王上頡專輯演唱會                </a>
+</h5>
+</div><!-- /event-data -->
+</div><!-- /event-block -->
+</div><!-- /col-lg-2 col-md-2 --><div class="col-lg-2 col-md-2 m-bottom-3">
+<div class="event-block">
+<h3>
+10/18                <small>
+(日)
+</small>
+</h3>
+<a href="/scsrc/event-post/17147" class="post-block main-board-pjax" title="強辯樂團x赤世代『強赤回歸安可場』＠Shining The Life 公益音樂節">
+<img class="post-img" src="http://cdn-data.indievox.com/indievox_user/390000/363679/event/event17147240.jpg?1440474670" alt="強辯樂團x赤世代『強赤回歸安可場』＠Shining The Life 公益音樂節">
+</a><!-- /post-block -->
+<div class="event-data">
+<a href="/scsrc/event-post/17147" class="btn btn-buy btn-sm btn-block main-board-pjax">
+購買門票</a>            <h6>
+台北・10/18 20:00            </h6>
+<h5>
+<a href="/scsrc/event-post/17147" class="main-board-pjax" title="強辯樂團x赤世代『強赤回歸安可場』＠Shining The Life 公益音樂節">
+強辯樂團x赤世代『強赤回歸安可場』＠Shining The Life 公益音樂節                </a>
+</h5>
+</div><!-- /event-data -->
+</div><!-- /event-block -->
+</div><!-- /col-lg-2 col-md-2 --><div class="col-lg-2 col-md-2 m-bottom-3">
+<div class="event-block">
+<h3>
+10/18                <small>
+(日)
+</small>
+</h3>
+<a href="/riversidemusic/event-post/17333" class="post-block main-board-pjax" title="潘寧【Heart beat 旅行音樂會】 / 曾詠熙 生日音樂會">
+<img class="post-img" src="http://cdn-data.indievox.com/indievox_user/180000/160850/event/event17333240.jpg?1443687321" alt="潘寧【Heart beat 旅行音樂會】 / 曾詠熙 生日音樂會">
+</a><!-- /post-block -->
+<div class="event-data">
+<a href="/riversidemusic/event-post/17333" class="btn btn-buy btn-sm btn-block main-board-pjax">
+購買門票</a>            <h6>
+台北・10/18 21:00            </h6>
+<h5>
+<a href="/riversidemusic/event-post/17333" class="main-board-pjax" title="潘寧【Heart beat 旅行音樂會】 / 曾詠熙 生日音樂會">
+潘寧【Heart beat 旅行音樂會】 / 曾詠熙 生日音樂會                </a>
+</h5>
+</div><!-- /event-data -->
+</div><!-- /event-block -->
+</div><!-- /col-lg-2 col-md-2 --><div class="col-lg-2 col-md-2 m-bottom-3">
+<div class="event-block">
+<h3>
+10/18                <small>
+(日)
+</small>
+</h3>
+<a href="/riversidemusic/event-post/17343" class="post-block main-board-pjax" title="【河岸留言年度爵士薦選】Guthrie Govan Guitar Clinic">
+<img class="post-img" src="http://cdn3-data.indievox.com/indievox_user/180000/160850/event/event17343240.jpg?1443692458" alt="【河岸留言年度爵士薦選】Guthrie Govan Guitar Clinic">
+</a><!-- /post-block -->
+<div class="event-data">
+<h6>
+台北・10/18 21:00            </h6>
+<h5>
+<a href="/riversidemusic/event-post/17343" class="main-board-pjax" title="【河岸留言年度爵士薦選】Guthrie Govan Guitar Clinic">
+【河岸留言年度爵士薦選】Guthrie Govan Guitar Clinic                </a>
+</h5>
+</div><!-- /event-data -->
+</div><!-- /event-block -->
+</div><!-- /col-lg-2 col-md-2 -->            </div>
+</div>
+<div class="col-md-2 col-lg-2 col-md-offset-5 col-lg-offset-5 m-bottom-3 page-show-more"
+data-action-url="/event/get-more-event-date-list"
+data-container="event-ticket-block"
+data-parameter="style=poster&content=event_upcoming&content_container_id=event-ticket-block&start_date=2015-10-11&end_date=2020-12-31&key_word=&load_more=1&pagenation_type=full-page-more&pagenation_expand_col="
+data-type="full-page-more" >
+<a  class="btn btn-default btn-sm btn-block"
+data-offset="7"
+data-length="7">顯示更多    </a>
+</div>        </div><!-- /panel-date -->
+</div><!-- /container -->
+</div><!-- /tickets-wrapper -->            </div><!-- /#main-board -->
+</div>
+<footer id="footer">
+<div class="container">
+<div class="row">
+<div class="col-md-3 col-lg-3">
+<div>
+<p>加入 iV 粉絲團，掌握獨立音樂最新動態！</p>
+<img src="/public/image/logo-facebook.png" class="pull-left">
+<div class="m-bottom-1">
+<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2Findievox%2F&amp;send=false&amp;layout=button_count&amp;width=85&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=117190508050"
+scrolling="no"
+frameborder="0"
+style="border:none; overflow:hidden; width:85px; height:21px;"
+allowtransparency="true">
+</iframe>
+</div>
+</div>
+</div>
+<div class="col-md-3 col-lg-3">
+<p>iNDIEVOX iPhone App，隨時聽音樂！</p>
+<a href="https://itunes.apple.com/tw/app/indievox/id490475438" target="_blank"><img src="/public/image/app-page-btn-1.png"></a>
+<a href="https://play.google.com/store/apps/details?id=com.indievox.mobile" target="_blank"><img src="/public/image/app-page-btn-2.png"></a>
+</div>
+<div class="col-md-3 col-lg-3">
+<p>本網站支援 ibon 售票系統</p>
+<a href="http://ticket.7net.com.tw/index.php?class=funcnav&func=news&work=detail&news_id=2300" target="_blank">
+<img src="/public/image/logo-ibon.png" class="img-responsive">
+</a>
+</div>
+<div class="col-md-3 col-lg-3">
+<form role="form" class="clearfix">
+<div class="form-group pull-left m-right-4 m-bottom-1">
+<label for="">您現在瀏覽的語言是</label>
+<div class="btn-group">
+<a class="btn btn-link btn-xs dropdown-toggle" data-toggle="dropdown">繁體中文 <span class="caret"></span></a>
+<ul class="dropdown-menu">
+<li class="active"><a class="language-select" language_code="zh">繁體中文</a></li><li class=""><a class="language-select" language_code="cn">简体中文</a></li><li class=""><a class="language-select" language_code="en">English</a></li><li class=""><a class="language-select" language_code="jp">日本語</a></li>        </ul>
+</div>
+</div>
+<script>
+$(document).ready(function() {
+
+$(document.body).off('click', '.language-select');
+$(document.body).on('click','.language-select', function() {
+
+var language_code = $(this).attr('language_code');
+if (language_code != 'zh') {
+$.ajax({
+url: '/language/set-prefer-language',
+type: "POST",
+data: {language_code : language_code},
+dataType: "json",
+beforeSend: function( xhr ) {
+$('#system-message').html('處理中...');
+$('#system-message').show();
+},
+success: function( json_data ) {
+if(json_data.response.status.code==0){
+$('#system-message').html('已完成');
+$('#system-message').fadeOut();
+window.location.reload();
+} else {
+$('#system-message').html('失敗，請重新操作');
+$('#system-message').fadeOut();
+}
+}
+});
+}
+
+});
+
+});
+</script>                                    </form>
+</div>
+</div>
+<div class="row m-top-4">
+<div class="col-md-12 col-lg-12">
+<ul class="list-inline">
+<li><a class="main-board-pjax" href="/h/about.html">關於 iNDIEVOX</a></li>
+<li><a class="main-board-pjax" href="/h/terms.html">使用條款</a></li>
+<li><a class="main-board-pjax" href="/h/privacy.html">隱私權政策</a></li>
+<li><a class="main-board-pjax" href="/h/content-provider-agreement.html">內容提供者合約</a></li>
+<li><a class="main-board-pjax" href="/h/contact.html">與我們聯絡</a></li>
+<li><a class="main-board-pjax" href="/h/buy-ticket/web">票券購買說明</a></li>
+<li><a class="main-board-pjax" href="/h/fund">音樂購買說明</a></li>
+<li><a class="main-board-pjax" href="/h/jobs.html">人才招募</a></li>
+<li><a class="main-board-pjax" href="/h/faq.html">常見問題</a></li>
+<li>
+<a id="switch-mobile-view-link">
+切換至手機版 iNDIEVOX 網頁                        </a>
+</li>
+<script>
+$(document.body).off('click', '#switch-mobile-view-link');
+$(document.body).on('click','#switch-mobile-view-link', function() {
+
+$.ajax({
+url: '/home/switch-use-mobile-view',
+type: "POST",
+data: {use_mobile_view : 'true'},
+dataType: "json",
+beforeSend: function( xhr ) {
+$('#system-message').html('處理中...');
+$('#system-message').show();
+},
+success: function( json_data ) {
+if(json_data.response.status.code==0){
+$('#system-message').html('已完成');
+$('#system-message').fadeOut();
+window.location.reload();
+} else {
+$('#system-message').html('失敗，請重新操作');
+$('#system-message').fadeOut();
+}
+}
+});
+
+});
+</script>
+</ul>
+<p>Copyright 2008-2015 iNDIEVOX. All Rights Reserved.</p>
+</div>
+</div>
+</div><!-- /container -->
+</footer>        <!-- Player
+================================================== -->
+<div id="player_wrapper" ng-controller="PlayerController" class="hide">
+<div class="container">
+<!-- player -->
+<div id="player">
+<div id="player_controls_playback">
+<div id="player_prev" ng-click="prev(null,async_enable)" ng-class="{disabled: currentIndex <= 0}" class="player_control main_asset"></div>
+<div id="player_play_pause" ng-click="start()" ng-class="{pause: playState == 'play', play: playState == 'stop'}" class="player_control main_asset"></div>
+<div id="player_next" ng-click="next()" ng-class="{disabled: songs.length - 1 <= currentIndex }" class="player_control main_asset"></div>
+</div><!-- /player_controls_playback -->
+<div id="player_volume_group">
+<div id="volume_wrapper">
+<div id="volume_back" class="bar"></div>
+<div id="volume_progress" class="bar progress"></div>
+<div id="volume_scrubber" class="" style="display: block;"></div>
+</div>
+<div id="player_volume" class="player_control main_asset {{ volumeLevel }} " type="button" ng-class="{muted:isMute}" ng-click="mute()" data-translate-title="QUEUE_SOUND_VOLUME_MUTE" title="Volumn. Click to mute."></div>
+</div><!-- /player_volume_group -->
+<div class="player_black">
+<div id="player_song_container">
+<div id="display_coverart">
+<img ng-src="{{ currentSong.image }}" ng-show="currentSong" />
+</div><!-- /display_coverart -->
+<div id="display_text">
+<h5><a class="song_name popup_work main-board-pjax" href="{{ currentSong.url }}">{{ currentSong.name }}</a></h5>
+<h6><a class="musician_name dynamic main-board-pjax" href="{{ currentSong.musician.url }}">{{ currentSong.musician.name }}</a></h6>
+</div><!-- /display_text -->
+<div id="display_action" style="display: block;">
+<!--<a ng-show="currentSong" ng-click="like(currentSong)">
+<i class="player_s_icon-like" ng-class="{ active: currentSong.like == true }"></i>
+</a>-->
+<a ng-show="currentSong.is_ad == false" ng-click="like(currentSong)">
+<i class="player_s_icon-thumbs-up" ng-class="{ active: currentSong.like == true }"></i>
+</a>
+<a ng-show="currentSong.is_ad == false" ng-click="dislike(currentSong)">
+<i class="player_s_icon-thumbs-down" ng-class="{ active: currentSong.song_already_dislike == true }"></i>
+</a>
+<!--<a><i class="player_s_icon-share"></i></a>-->
+<a ng-show="currentSong.is_ad == false && currentSong.song_already_buy == false" class="buy-music-btn" data-item-id="{{ currentSong.id }}" data-item-type="song" data-mode="radio">
+<i class="player_s_icon-buy"></i>
+</a>
+</div><!-- /display_action -->
+<div id="player_controls_seeking">
+<div id="player_times">
+<span id="player_elapsed">00:00</span>
+</div>
+<div id="seeking_wrapper" class="" aria-disabled="false">
+<div id="player_seeking_back" class="bar"></div>
+<div id="player_seeking_buffer" class="bar buffer" style="width: 0%; "></div>
+<div id="player_seeking_progress" class="bar progress" style="width: 0%; "></div>
+<div id="player_seeking_scrubber" class="" style="display: block; left: 0%; "></div>
+</div>
+<div id="player_times">
+<span id="player_duration">00:00</span>
+</div>
+</div><!-- /player_controls_seeking -->
+</div><!-- /player_song_container -->
+</div><!-- player_black -->
+<div id="button_wrapper">
+<div id="open_playlist_button" class="player_control main_asset" type="button">
+<span class="playlist_unm">{{ songs.length }}</span>
+</div>
+<div id="loop_button" ng-class="{active: loopMode}" ng-click="toggleLoop()" class="player_control"></div>
+<!--<div id="limitless_button" ng-class="{active: radioMode}" class="player_control" ng-click="toggleRadio()"></div>-->
+<div id="limitless_button" class="player_control" ng-click="goToRadio()"></div>
+</div><!-- /button_wrapper -->
+</div><!-- /player -->
+<!-- player_queue -->
+<div id="c_queue">
+<div id="playerDetails">
+<h4>{{ playerTitle }}</h4>
+<span id="queue_songCount">（{{ songs.length }}）</span>
+<div id="playerDetails_queue">
+<div id="current_playlist_clear" ng-click="clearQueue()">清空</div>
+</div>
+<div id="player_queue_resize" class="main_asset ui-resizable-handle ui-resizable-n" title="Drag to resize" data-translate-title="QUEUE_RESIZE_HANDLE"></div>
+</div>
+<div id="queue" class="size-m">
+<div id="queue_list_window" class="queue viewport ui-droppable">
+<ol id="queue_list" class="queue medium overview clearfix ui-sortable">
+<li class="queue-item" queue-index="{{ $index }}" ng-repeat="song in songs">
+<div class="queue-item-content" ng-class="{nowplaying: $index == currentIndex}">
+<div class="queueSong">
+<a class="play" ng-click="play(song, 'async_enable')"></a>
+<div class="albumart" ng-style="{'background-image':'url(' + song.image + ')'}"></div>
+<a href="{{ song.url }}" title="{{ song.name }}" class="popup_work queueSong_name song ellipsis main-board-pjax">{{ song.name }}</a>
+<a href="{{ song.musician.url }}" title="{{ song.musician.name }}" class="dynamic queueSong_artist artist ellipsis main-board-pjax">by {{ song.musician.name }}</a>
+<span class="remove" ng-click="remove(song)"></span>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<!-- /player_queue -->
+</div><!-- container -->
+</div>
+<div id="jplayer"></div>        <div id="iv-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+<div id="iv-modal-block" class="modal-dialog">
+</div><!-- /.modal-dialog -->
+</div>        <div id="iv-realtime-message">
+<div class="realtime-message-full">
+<div>
+<div class="realtime-message-inner">
+<div class="realtime-message-icon">
+<span class="glyphicon glyphicon-iv-c"></span>
+</div>
+<div id="realtime-message-content">
+</div>
+</div>
+</div>
+</div>
+</div>    </body>
+</html>
