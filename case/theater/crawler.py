@@ -62,10 +62,10 @@ def fetchInfo(line):
 
 def create(title, url, cnt):
     if title == "theater_thewall":
-        urls = theater_thewall.createUrl(url, cnt) 
-        return urls
+        url = theater_thewall.createUrl(url, cnt) 
+        return url
     else:
-        return [url]
+        return url
 
 def clean():
     os.system("rm -rf result/*")
