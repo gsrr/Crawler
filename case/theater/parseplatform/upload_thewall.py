@@ -11,8 +11,27 @@ result = json.loads(connection.getresponse().read())
 print result
 '''
 
+ParseKey = {
+        "X-Parse-Application-Id": "mpuTWZgtQanqfCdO8IWJEJbHTZoQq97h6pG2qhGT",
+        "X-Parse-REST-API-Key": "2iECCPZtci4c8MER1Jy14FwOw3AmKUlbq3a7Cgrr",
+    }
 
-def insertData(data):
+def queryData(title):
+    classMap = {
+        "theater_thewall" : "/1/classes/TheWall",
+    }
+    connection = httplib.HTTPSConnection('api.parse.com', 443)
+    connection.connect()
+    connection.request('GET', classMap[title], '', ParseKey)
+    result = json.loads(connection.getresponse().read())
+    image_ids = []
+    for line in result['results']:
+        image_ids.append(line['image_id'])
+    return image_ids
+
+def insertData(data, image_ids):
+    if data["image_id"] in image_ids:
+        return {'status' : 1, 'msg': "Already exist"}
     connection = httplib.HTTPSConnection('api.parse.com', 443)
     connection.connect()
     connection.request('POST', '/1/classes/TheWall', json.dumps(data), 
@@ -27,6 +46,7 @@ def insertData(data):
 
 
 def main(title):
+    image_ids = queryData(title)
     with open("result//" + title + ".result" , "r") as fr:
         lines = fr.readlines()
         cnt = 0
@@ -41,7 +61,7 @@ def main(title):
                     value = line.split("=")[1]
                     data[key] = value
                     cnt += 1
-                insertData(data)
+                print insertData(data, image_ids)
             else:
                 cnt += 1
 
