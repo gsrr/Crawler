@@ -38,7 +38,7 @@ class Parser:
             fr = urllib.urlopen(url_image)
             data = fr.read()
             fw.write(data)
-
+        return file_id
 
 
     def extractPoster(self, data):
@@ -49,7 +49,7 @@ class Parser:
             content['url_content'] = self.extractURL(item)
             content['title'] = self.extractTitle(item)
             content['url_image'] = self.extractImage(item) #download image
-            self.download(content['url_content'], content['url_image'])
+            content['image_id'] = self.download(content['url_content'], content['url_image'])
             contents.append(copy.deepcopy(content))
         return contents
 
@@ -67,7 +67,6 @@ class Parser:
                 content[data_dic[item[0]]] = getContent(item[1], data_dic[item[0]])
                 cnt += 1
             else:
-                #print item[0], item[1]
                 pass
     
     def extractDate(self, data, contents):
@@ -90,17 +89,22 @@ class Parser:
         contents = self.extractPoster(data_ret) 
         self.extractPrice(data_ret, contents)
         self.extractDate(data_ret, contents)
-        for content in contents:
-            for key in content.keys():
-                print key,content[key]
-            print
-        #self.write(data_ret)
+        if len(contents) > 0:
+            self.write(contents)
+            return 0
+        else:
+            return 1
 
     def write(self, data):
-        with open("result/theater_thewall.result", "w") as fw:
-            for line in data:
-                fw.write(line)
-                fw.write("\n")
-
+        with open("result/theater_thewall.result", "a") as fw:
+            for content in data:
+                fw.write("--start--\n")
+                for key in content.keys():
+                    if key ==  "price":
+                        fw.write(key + "=" + content[key].replace("\n", "::") + "\n")
+                    else:
+                        fw.write(key + "=" + content[key] + "\n")
+                fw.write("--end--\n\n")
+                
     def start(self):
-        self.parse()
+        return self.parse()

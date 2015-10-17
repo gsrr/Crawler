@@ -7,7 +7,7 @@ import traceback
 import os
 import sys
 sys.path.append("myparser")
-
+from urlcreate import theater_thewall
 
 Modules = {}
 
@@ -35,13 +35,12 @@ def createObj(title, paras):
     return parser.Parser(paras)
 
 def start_crawl(title, url):
-    #print urlparse.urljoin(url , "../aaa")
     paras = {
         'title' : title,
         'url': url,
     }
     class_obj = createObj(title, paras)
-    class_obj.start()
+    return class_obj.start()
 
 def loadModules():
     names = []
@@ -52,16 +51,44 @@ def loadModules():
             names.append(name)
             Modules[name] = map(__import__, [name])
             
+
+def fetchInfo(line):
+    ret = {}
+    info_list = line.split("::")
+    ret["title"] = info_list[0]
+    ret['url'] = info_list[1]
+    return ret
+
+
+def create(title, url, cnt):
+    if title == "theater_thewall":
+        urls = theater_thewall.createUrl(url, cnt) 
+        return urls
+    else:
+        return [url]
+
+def clean():
+    os.system("rm -rf result/*")
+
 def main():
     try:
+        clean()
         loadModules()
         data = readFile("./webpage.cfg")
         for line in data:
             line = line.strip()
             if line and line[0] != "#":
-                title = line.split()[0]
-                url = line.split()[1]
-                start_crawl(title, url)
+                info_dic = fetchInfo(line)
+                title = info_dic['title']
+                url = info_dic['url']
+                cnt = 0
+                while True:
+                    realurl = create(title, url, cnt)
+                    print realurl
+                    cnt += 1
+                    ret = start_crawl(info_dic["title"], realurl)
+                    if ret != 0:
+                        break
     except:
         print traceback.format_exc()
 
