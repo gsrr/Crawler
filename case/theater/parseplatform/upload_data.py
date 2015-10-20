@@ -39,8 +39,8 @@ def insertData(title, data, image_ids):
     connection.connect()
     connection.request('POST', classMap[title], json.dumps(data), 
     {
-        "X-Parse-Application-Id": "mpuTWZgtQanqfCdO8IWJEJbHTZoQq97h6pG2qhGT",
-        "X-Parse-REST-API-Key": "2iECCPZtci4c8MER1Jy14FwOw3AmKUlbq3a7Cgrr",
+        "X-Parse-Application-Id": App_id,
+        "X-Parse-REST-API-Key": Api_key,
         "Content-Type": "application/json"
     })
     results = json.loads(connection.getresponse().read())
