@@ -1,16 +1,31 @@
 # -*- coding: utf-8 -*-
-import mylib
+#import mylib
 import re
 import urlparse
 import urllib
-import parseplatform
 import copy
+import os
 
 def getContent(data, item):
     if item == "price":
         return data.replace("<span class='ticket_content'></span>", ",").replace("<br />", "\n")   
     return data
 
+def ex_read():
+    data = []
+    with open("./examples/indievox.page") as fr:
+        lines = fr.readlines()
+        for line in lines:
+            data.append(line.strip())
+    return data
+
+def ex2_read():
+    data = []
+    with open("./examples/indievox_in.page") as fr:
+        lines = fr.readlines()
+        for line in lines:
+            data.append(line.strip())
+    return data
 
 class Parser:
     def __init__(self, paras):
@@ -81,47 +96,43 @@ class Parser:
 
 
     def _parse_content(self, url, content):
-        print url
         data = mylib.myurl(url)
+        #data = ex2_read()
         data_ret = ""
         place = 0
         price = 0
         start_date = 0
         start_time = 0
         for line in data:
+            if "post-img" in line:
+                searchObj = re.search(r'<img class="post-img" src="(.*?)"', line , re.M|re.I|re.S)
+                content['url_image'] = searchObj.group(1)
+            if price == 1 and "元" in line:
+                content['price'] = line.strip("</td>").strip()
+                price = 0
+            if start_date == 1 and "</td>" in line:
+                infos = line.split()
+                content['start_date'] = infos[0]
+                content['start_time'] = infos[1]
+                searchObj = re.search(r'text=(.*?)&', line , re.M|re.I|re.S)
+                content['title'] = searchObj.group(1)
+                searchObj = re.search(r'location=(.*?)&', line , re.M|re.I|re.S)
+                content['place'] = searchObj.group(1)
+                start_date = 0
+            if "票價" in line:
+                price = 1
+            if "時間" in line:
+                start_date = 1
+            '''
             if "<title>" in line:
                 searchObj = re.search(r'<title>(.*?)</title>', line , re.M|re.I|re.S)
                 if searchObj:
                     content['title'] = searchObj.group(1)
-            if "alignnone" in line:
-                searchObj = re.search(r'src="(.*?)"', line , re.M|re.I|re.S)
-                if searchObj:
-                    content['url_image'] = searchObj.group(1)
-                    content['image_id'] = searchObj.group(1).split("/")[-1]
-
-            if place == 1 and "</p>" in line:
-                content['place'] = line.strip().rstrip("</p>")
-                place = 0
-            if price == 1 and '</p>' in line:
-                content['price'] = line.strip().rstrip("</p>")
-                price = 0
-            if start_date == 1 and '</p>' in line:
-                content['start_date'] = line.strip().rstrip("</p>")
-                start_date = 0
-            if start_time == 1 and '</p>' in line:
-                content['start_time'] = line.strip().rstrip("</p>")
-                start_time = 0
-            if "演出場地" in line:
-                place = 1
-            if "演出票價" in line:
-                price = 1
-            if "演出日期" in line:
-                start_date = 1
-            if "演出開始" in line:
-                start_time = 1
+            '''
 
     def parse(self):
         data = mylib.myurl(self.url)
+        #data = ex_read()
         data_ret = ""
         contents = []
         for line in data:
@@ -131,14 +142,22 @@ class Parser:
                     movie_url = urlparse.urljoin(self.url, searchObj.group(1))
                     concert = {}
                     concert["url_content"] = movie_url
+                    concert['title'] = ""
+                    concert['place'] = ""
+                    concert['price'] = ""
+                    concert['start_date'] = ""
+                    concert['start_time'] = ""
+                    concert['image_id'] = movie_url.split("/")[-1]
+                    concert['image_url'] = ""
                     self._parse_content(movie_url, concert)
-                    concert['image_id'] = os.path.basename(movie_url)
                     contents.append(copy.deepcopy(concert))
+
+        self.write(contents)
                     
 
 
     def write(self, data):
-        with open("result/legacy.result", "a") as fw:
+        with open("result/indievox.result", "a") as fw:
             for content in data:
                 fw.write("--start--\n")
                 for key in content.keys():
@@ -150,3 +169,10 @@ class Parser:
                 
     def start(self):
         return self.parse()
+
+
+if __name__ == "__main__":
+    paras = {}
+    paras['url'] = "aaaa"
+    p = Parser(paras)
+    p.parse()

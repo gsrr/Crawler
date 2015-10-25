@@ -15,8 +15,9 @@ App_id = "mpuTWZgtQanqfCdO8IWJEJbHTZoQq97h6pG2qhGT"
 Api_key = "2iECCPZtci4c8MER1Jy14FwOw3AmKUlbq3a7Cgrr"
 
 classMap = {
-    "theater_thewall" : "/1/classes/TheWall",
-    "legacy" : "/1/classes/legacy"
+    "theater_thewall" : "/1/classes/Theater",
+    "legacy" : "/1/classes/Theater"
+    "indievox" : "/1/classes/Theater"
 }
 
 def queryData(title):
