@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-#import mylib
+import mylib
 import re
 import urlparse
 import urllib
@@ -96,20 +96,24 @@ class Parser:
 
 
     def _parse_content(self, url, content):
+        print url
         data = mylib.myurl(url)
         #data = ex2_read()
         data_ret = ""
         place = 0
+        price_td = 0
         price = 0
         start_date = 0
         start_time = 0
         for line in data:
             if "post-img" in line:
                 searchObj = re.search(r'<img class="post-img" src="(.*?)"', line , re.M|re.I|re.S)
-                content['url_image'] = searchObj.group(1)
-            if price == 1 and "元" in line:
+                content['url_image'] = searchObj.group(1).strip()
+            
+            if price == 1:
                 content['price'] = line.strip("</td>").strip()
                 price = 0
+                print content['price']
             if start_date == 1 and "</td>" in line:
                 infos = line.split()
                 content['start_date'] = infos[0]
@@ -119,9 +123,13 @@ class Parser:
                 searchObj = re.search(r'location=(.*?)&', line , re.M|re.I|re.S)
                 content['place'] = searchObj.group(1)
                 start_date = 0
-            if "票價" in line:
+                
+            if price_td == 1 and "<td>" in line:
                 price = 1
-            if "時間" in line:
+                price_td = 0
+            if "票價" in line:
+                price_td = 1
+            if "時間" in line and "</th>" in line:
                 start_date = 1
             '''
             if "<title>" in line:
@@ -131,15 +139,20 @@ class Parser:
             '''
 
     def parse(self):
+        print self.url
         data = mylib.myurl(self.url)
         #data = ex_read()
         data_ret = ""
         contents = []
+        urls = []
         for line in data:
             if "event-post" in line:
                 searchObj = re.search(r'<a href="(.*?)" class', line , re.M|re.I|re.S)
                 if searchObj:
                     movie_url = urlparse.urljoin(self.url, searchObj.group(1))
+                    if movie_url in urls :
+                        continue
+                    urls.append(movie_url)
                     concert = {}
                     concert["url_content"] = movie_url
                     concert['title'] = ""
@@ -148,7 +161,6 @@ class Parser:
                     concert['start_date'] = ""
                     concert['start_time'] = ""
                     concert['image_id'] = movie_url.split("/")[-1]
-                    concert['image_url'] = ""
                     self._parse_content(movie_url, concert)
                     contents.append(copy.deepcopy(concert))
 
