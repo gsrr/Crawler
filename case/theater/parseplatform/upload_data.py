@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 import json,httplib
 '''
 connection = httplib.HTTPSConnection('api.parse.com', 443)
@@ -34,6 +35,7 @@ def queryData(title):
     return image_ids
 
 def insertData(title, data, image_ids):
+    data["image_id"] = data["image_id"].decode("utf-8")
     if data["image_id"] in image_ids:
         return {'status' : 1, 'msg': "Already exist"}
     connection = httplib.HTTPSConnection('api.parse.com', 443)

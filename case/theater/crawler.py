@@ -6,6 +6,7 @@ import urlparse
 import traceback
 import os
 import sys
+import shutil
 sys.path.append("myparser")
 from urlcreate import theater_thewall
 
@@ -68,8 +69,13 @@ def create(title, url, cnt):
         return url
 
 def clean():
-    os.system("rm -rf result/*")
-
+    try:
+        shutil.rmtree("result")
+    except:
+        pass
+    finally:
+        os.mkdir("result")
+        
 def main():
     try:
         clean()
