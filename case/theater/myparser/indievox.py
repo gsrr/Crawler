@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import mylib
+#import mylib
 import re
 import urlparse
 import urllib
@@ -97,8 +97,8 @@ class Parser:
 
     def _parse_content(self, url, content):
         print url
-        data = mylib.myurl(url)
-        #data = ex2_read()
+        #data = mylib.myurl(url)
+        data = ex2_read()
         data_ret = ""
         place = 0
         price_td = 0
@@ -107,8 +107,9 @@ class Parser:
         start_time = 0
         for line in data:
             if "post-img" in line:
-                searchObj = re.search(r'<img class="post-img" src="(.*?)"', line , re.M|re.I|re.S)
-                content['url_image'] = searchObj.group(1).strip()
+                searchObj = re.search(r'<img class="post-img" src="(.*?)" alt="(.*?)"', line , re.M|re.I|re.S)
+                if searchObj:
+                    content['url_image'] = searchObj.group(1).strip()
             
             if price == 1:
                 content['price'] = line.strip("</td>").strip()
@@ -140,8 +141,8 @@ class Parser:
 
     def parse(self):
         print self.url
-        data = mylib.myurl(self.url)
-        #data = ex_read()
+        #data = mylib.myurl(self.url)
+        data = ex_read()
         data_ret = ""
         contents = []
         urls = []
@@ -162,9 +163,10 @@ class Parser:
                     concert['start_time'] = ""
                     concert['image_id'] = movie_url.split("/")[-1]
                     self._parse_content(movie_url, concert)
+                    print concert['url_image']
                     contents.append(copy.deepcopy(concert))
-
-        self.write(contents)
+        
+        #self.write(contents)
                     
 
 
