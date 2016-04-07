@@ -12,8 +12,8 @@ result = json.loads(connection.getresponse().read())
 print result
 '''
 
-App_id = ""
-Api_key = ""
+App_id = "mpuTWZgtQanqfCdO8IWJEJbHTZoQq97h6pG2qhGT"
+Api_key = "2iECCPZtci4c8MER1Jy14FwOw3AmKUlbq3a7Cgrr"
 
 classMap = {
     "theater_thewall" : "/1/classes/Theater",

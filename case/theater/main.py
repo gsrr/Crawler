@@ -4,8 +4,8 @@ from parseplatform import upload_data
 
 
 if __name__ == "__main__":
-    crawler.main()
-    upload_data.main("theater_thewall")
+    #crawler.main()
+    #upload_data.main("theater_thewall")
     upload_data.main("legacy")
-    upload_data.main("indievox")
+    #upload_data.main("indievox")
 

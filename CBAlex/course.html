@@ -1,0 +1,372 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>成功大學課程查詢系統_100</title>
+<link href="favicon32.ico" rel="icon" type="image/x-icon" />
+<!--<link href="favicon.ico" rel="icon" type="image/x-icon" />-->
+<!--<link rel="stylesheet" type="text/css" href='style/jquery-ui.css'/>-->
+<link rel="stylesheet" type="text/css" href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/themes/sunny/jquery-ui.css'/>
+<link rel="stylesheet" type="text/css" href="style/common.css" />
+<!--<link rel="stylesheet" type="text/css" href="style/ui.datepicker.css" />-->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
+<!--<script type="text/javascript" src="script/jquery/jquery.js"></script>-->
+<!--<script type="text/javascript" src="script/jquery/ui.core.js"></script>-->
+<!--<script type="text/javascript" src="script/jquery/jquery.accordion.js"></script>-->
+<!--<script type="text/javascript" src="script/jquery/ui.dialog.js"></script>-->
+<script type="text/javascript" src="script/jquery/jquery.blockUI.js"></script>
+<script type="text/javascript" src="script/jquery/jquery.form.js"></script>
+<script type="text/javascript" src="script/schedule.js"></script>
+<script type="text/javascript" src="script/main.js"></script>
+<script type="text/javascript">
+var curr_syear = '0104';
+var curr_sem = '1';
+var newsItem={"114":{"release":"2012-09-21","deadline":"2025-12-31","title":"*\u81fa\u7063\u7d9c\u5408\u5927\u5b78\u7cfb\u7d71 (\u4e2d\u5c71\u3001\u4e2d\u6b63\u3001\u4e2d\u8208) \u8de8\u6821\u9078\u8ab2\u76f8\u95dc\u8a0a\u606f\u3002","content":"* \u81fa\u7063\u7d9c\u5408\u5927\u5b78\u7cfb\u7d71 (\u4e2d\u5c71\u3001\u4e2d\u6b63\u3001\u4e2d\u8208) \u8de8\u6821\u9078\u8ab2\u76f8\u95dc\u8a0a\u606f\u3002  http:\/\/cid.acad.ncku.edu.tw\/files\/14-1056-88205,r677-1.php"}}
+$(document).ready(function(){
+$("#g_syear").click(function(){
+var yValue = $(this).val();
+var sValue = $("#g_sem").val();
+
+if((yValue == curr_syear) && (curr_sem == 1)){
+$("#g_sem").html("<option value='1' selected>1</option>");
+} else {
+$("#g_sem").html("<option value='1' selected>1</option><option value='2' selected>2</option>");
+}
+});
+
+});
+</script>
+</head>
+<body>
+<div class='header'><img alt='logo' src='image/logo.gif' />
+<div class='school_title'>國立成功大學課程查詢系統<br />
+National Cheng Kung University Course Catalog</div>
+<img alt='tree' class='tree' src='image/tree.gif' />
+
+</div>
+
+<div class='sidebar'>
+<div id='menus'>
+<select id='language_picker' style='width:140px'>
+<option value='index.php?lang=zh_tw' selected>繁體中文</option>
+<option value='index.php?lang=en' >English</option>
+</select>
+
+
+</div>
+<div class='menu_area' id='func'>功能列<!-- 功能列 -->
+<a href="http://ucourse.tvc.ntnu.edu.tw/?sno=0005" target="_blank" style='border:0px'><img src="image/ucourselogo.jpg" alt="大學校院課程上網" style='border:0px'/></a>
+<ul>
+<li><a id='s_tab1' href='#'><div style="font-size:18px;font-weight: bold;background-color:#A4C8EC;color: #039; ">進階查詢</div>           <div  style='color:black;font-size: 12px; '>
+(多條件查詢:學年,學期,系所,星期節次,老師..)
+</div>
+</a>
+</li>
+
+<li><a id='s_tab2' href='#'><div style="font-size:18px;font-weight: bold;background-color:#d1e791;color: #039; ">通識查詢</div></a></li>
+<!--  20120904 取消 虛擬課表 的連結 -->
+<!--  <li><a target='_blank' href='schedule.php'>虛擬課表</a></li> -->
+<!-- 20141106  add課綱查詢  -->
+<li><a target='_blank'  href='http://class-qry.acad.ncku.edu.tw/syllabus/courseQuery.php'>
+<div style="font-size:18px;font-weight: bold;background-color:#f7cdde;color: #039; ">課綱查詢</div></a></li>
+<!--服務學習推薦專區  -->
+<li><a href=http://cid.acad.ncku.edu.tw/files/14-1056-139460,r766-1.php?Lang=zh-tw target='_blank'><div style="font-size:16px;font-weight: bold;background-color:#FFFF99;color: #039; ">服務學習推薦專區</div></a></li>
+<li><a href="http://140.116.165.204/~contactuser/course/index.php"
+target='_blank'><div style="font-size:16px;font-weight: bold;background-color:#B3FFB3;color: #039; ">跨領域學分學程</div></a></li>
+
+<li>
+
+</li>
+</ul>
+</div>
+<!-- 20130114 mask  因為備援主機已關閉  -->
+<!--
+<div class='menu_area' style='height:90px;' id='serv'>備援主機 -->
+<!-- 主機 -->
+<!-- <ul>
+<li><a target='_blank' href='http://140.116.165.71:8888/ncku/qopa.asp'>主機 1</a></li>
+<li><a target='_blank' href='http://140.116.165.72:8888/ncku/qopa.asp'>主機 2</a></li>
+<li><a target='_blank' href='http://140.116.165.73:8888/ncku/qopa.asp'>主機 3</a></li>
+</ul>
+</div>   -->
+
+<div class='message_area' style='margin-top: 0px; height: 200px;' id='msg'>課程公告<ul style='height:180px;overflow:auto;margin-left:-25px'>
+<li><a href='#114'>*臺灣綜合大學系統 (中山、中正、中興) 跨校選課相關訊息。</a></li></ul>
+
+</div>
+
+<div class='menu_area' id='links'>相關連結<!-- 相關連結 -->
+<ul>
+<li>
+<!-- 選課系統 -->
+<a href="https://myidp.sso2.ncku.edu.tw/nidp/idff/sso?id=3&sid=1&option=credential&sid=1" target='_blank'>選課系統</a>
+</li>
+<!-- e-Learning   數位學習平台 -->
+<li><a href="http://moodle.ncku.edu.tw/?lang=en" target='_blank'>數位學習平台</a></li>
+<!-- 課務組 -->
+<li><a href=http://cid.acad.ncku.edu.tw/bin/home.php  target='_blank'>課務組</a></li>
+<li><a href="makeup.php"  target='_blank'>補課資料查詢</a></li>
+<li><a href="http://www.ncku.edu.tw/~register/chinese/94year/query_man.htm"  target='_blank'>選課作業諮詢人員</a></li>
+<!--校區總配置圖 -->
+<li><a href="http://cid.acad.ncku.edu.tw/files/14-1056-54445,r766-1.php"  target='_blank'>校區總配置圖</a></li>
+<li><a href="http://140.116.206.101:8080/ncku/"  target='_blank'>校園地理資訊系統</a></li>
+<!--校際選課實施辦法 -->
+<li><a href=http://cid.acad.ncku.edu.tw/ezfiles/56/1056/img/48/rule3-1.pdf  target='_blank'>校際選課實施辦法</a></li>
+
+<!-- 20130117  mask
+<li><a href="http://www.ncku.edu.tw/~course/chinese/openf/department1.html"  target='_blank'>系所代碼表(大學部)</a></li>
+<li><a href="http://www.ncku.edu.tw/~course/chinese/openf/department2.html"  target='_blank'>系所代碼表(研究所)</a></li>  -->
+
+<li><a href="http://cid.acad.ncku.edu.tw/files/14-1056-54444,r766-1.php"  target='_blank'>節次時間對照表</a></li>
+<!--通識課程簡介 20120702 mask
+<li><a href="http://cid.acad.ncku.edu.tw/files/14-1056-54446,r766-1.php"  target='_blank'>通識課程簡介</a></li>-->
+<!--98學年通識課程新、舊領域對照表 -->
+<!-- <li><a href="http://cid.acad.ncku.edu.tw/files/14-1056-54835,r766-1.php"  target='_blank'>98學年通識課程新、舊領域對照表</a></li>-->
+<!--行事曆 -->
+<li><a href=http://web.ncku.edu.tw/files/11-1000-6149.php  target='_blank'>行事曆</a></li>
+
+<li><a href="http://cid.acad.ncku.edu.tw/files/14-1056-54448,r766-1.php"  target='_blank'>課程查詢操作說明</a></li>
+<li><a href="http://cid.acad.ncku.edu.tw/ezfiles/56/1056/img/761/Student_Affairs_Calendar.pdf"  target='_blank'>學務活動實施預定表</a></li>
+<!--體育選課須知 -->
+<li><a href=http://cid.acad.ncku.edu.tw/ezfiles/56/1056/img/761/sport.pdf target='_blank'>體育選課須知</a></li>
+<!--選課系統操作說明 20120702 mask
+<li><a href="http://cid.acad.ncku.edu.tw/files/14-1056-54447,r766-1.php"  target='_blank'>選課系統操作說明</a></li>-->
+<!--20130425 修改 <li><a href="http://cid.acad.ncku.edu.tw/ezfiles/56/1056/img/734/0054.pdf" -->
+
+
+
+
+<!--經濟部智慧財產局 -->
+<li><a href=https://www.tipo.gov.tw/mp.asp?mp=1 target='_blank'>經濟部智慧財產局</a></li>
+
+</ul>
+</div>
+<!-- 相關連結 -->
+
+<div class='menu_area' id='links'> 到訪人次
+<ul>
+<li><a href="http://SiteStates.com" title="站長工具">
+<img src="http://SiteStates.com/show/image/28011.jpg" border="0" />
+</a>
+</li>
+<li></br></li>
+<li><span style='font-size:10px;color: #039;'>140.112.31.157</span></li>
+<!-- 測試程式的連結 20131009 add-->
+<!--
+<li>
+<a href="test/test00.php?dept_no=c5" target="#" >--</a>
+</li>-->
+
+</ul>
+</div>
+
+
+<!--
+<input type='button' id='hideSidebar' value='hide' />
+<input type='button' id='showSidebar' value='Show' />
+-->
+</div>
+<div class='content'>
+<div id='nav'  style='font-size:16px;margin-left :30px;margin-bottom:10px;font-weight: 300  '>
+<span id='syear'>104</span>
+<span>學年</span>
+<span id='sem'>1</span>
+<span>學期課程查詢</span>
+<span id='level1'>&nbsp;›&nbsp;<a href='index.php'>首頁</a></span>
+<span style='float:right;color:red;font-weight: 150'>請遵守智慧財產權觀念  不非法影印 </span>
+</div>
+<div></div>
+<script type="text/javascript" src="script/qry000.js"></script>
+<ul id='dept_list'>
+<p> <span style=' font-weight: 150 ;  font-size:16px; '>
+課程資訊請洽課務組50158 彭小姐!
+</span></p> <li><div class='theader' title='其他'>其他</div><div class='tbody'><div class='dept'><a target='_blank' href='qry001.php?dept_no=A2'> ( A2 ）體育室           OPE </a></div><div class='dept'><a target='_blank' href='qry001.php?dept_no=A3'> ( A3 ）軍訓室           MT </a></div><div class='dept'><a target='_blank' href='qry001.php?dept_no=A4'> ( A4 ）師培中心         CTE </a></div><div class='dept'><a target='_blank' href='qry001.php?dept_no=A5'> ( A5 ）計網中心         CN </a></div><div class='dept'><a target='_blank' href='qry001.php?dept_no=A6'> ( A6 ）服務學習         SS </a></div><div class='dept'><a target='_blank' href='qry001.php?dept_no=AA'> ( AA ）共同英授          </a></div><div class='dept'><a target='_blank' href='qry001.php?dept_no=AH'> ( AH ）華語中心         CLC </a></div> </div></li>  <li><div class='theader' title='不分學院'>不分學院</div><div class='tbody'><div class='dept'><a target='_blank' href='qry001.php?dept_no=AN'> ( AN ）不分系學程       CCEP </a></div><div class='dept'><a target='_blank' href='qry001.php?dept_no=C0'> ( C0 ）科學班            </a></div> </div></li>  <li><div class='theader' title='通識中心'>通識課程</div><div class='tbody'><div class='dept'><a target='_blank' href='qry001.php?dept_no=A1'> ( A1 ）外國語言         FLL </a></div><div class='dept'><a target='_blank' href='qry001.php?dept_no=A7'> ( A7 ）基礎國文         CL </a></div><div class='dept'><a target='_blank' href='qry001.php?dept_no=A9'> ( A9 ）通識中心         GE </a></div><div class='dept'><a target='_blank' href='qry001.php?dept_no=AG'> ( AG ）公民歷史          </a></div> </div></li>  <li><div class='theader' title='文學院'>文學院</div><div class='tbody'><div class='dept'><a target='_blank' href='qry001.php?dept_no=B1'> ( B1 ）中文系           CL </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=K1'> ( K1 ）中文所           CL</a></div><div class='dept'><a target='_blank' href='qry001.php?dept_no=B2'> ( B2 ）外文系           FLL </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=K2'> ( K2 ）外文所           FLL</a></div><div class='dept'><a target='_blank' href='qry001.php?dept_no=B3'> ( B3 ）歷史系           HIS </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=K3'> ( K3 ）歷史所           HIS</a></div><div class='dept'><a target='_blank' href='qry001.php?dept_no=B5'> ( B5 ）台文系           TWL </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=K5'> ( K5 ）台文所           TWL</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=K4'> ( K4 ）藝術所           AS</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=K7'> ( K7 ）考古所           Arxe</a></div> </div></li>  <li><div class='theader' title='理學院'>理學院</div><div class='tbody'><div class='dept'><a target='_blank' href='qry001.php?dept_no=C1'> ( C1 ）數學系           MATH </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=L1'> ( L1 ）應數所           MATH</a></div><div class='dept'><a target='_blank' href='qry001.php?dept_no=C2'> ( C2 ）物理系           PHYS </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=L2'> ( L2 ）物理所           PHYS</a></div><div class='dept'><a target='_blank' href='qry001.php?dept_no=C3'> ( C3 ）化學系           CHEM </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=L3'> ( L3 ）化學所           CHEM</a></div><div class='dept'><a target='_blank' href='qry001.php?dept_no=C4'> ( C4 ）地科系           EARS </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=L4'> ( L4 ）地科所           EARS</a></div><div class='dept'><a target='_blank' href='qry001.php?dept_no=F8'> ( F8 ）光電系           DPS </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=L7'> ( L7 ）光電所           DPS</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=LA'> ( LA ）電漿所           SAPS</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=VF'> ( VF ）發光二極         </a></div> </div></li>  <li><div class='theader' title='工學院'>工學院</div><div class='tbody'><div class='dept'><a target='_blank' href='qry001.php?dept_no=E0'> ( E0 ）工學院           COE </a></div><div class='dept'><a target='_blank' href='qry001.php?dept_no=E1'> ( E1 ）機械系           ME </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=N1'> ( N1 ）機械所           ME</a></div><div class='dept'><a target='_blank' href='qry001.php?dept_no=E3'> ( E3 ）化工系           CHE </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=N3'> ( N3 ）化工所           CHE</a></div><div class='dept'><a target='_blank' href='qry001.php?dept_no=E4'> ( E4 ）資源系           RE </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=N4'> ( N4 ）資源所           RE</a></div><div class='dept'><a target='_blank' href='qry001.php?dept_no=E5'> ( E5 ）材料系           MSE </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=N5'> ( N5 ）材料所           MSE</a></div><div class='dept'><a target='_blank' href='qry001.php?dept_no=E6'> ( E6 ）土木系           CE </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=N6'> ( N6 ）土木所           CE</a></div><div class='dept'><a target='_blank' href='qry001.php?dept_no=E8'> ( E8 ）水利系           HOE </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=N8'> ( N8 ）水利所           HOE</a></div><div class='dept'><a target='_blank' href='qry001.php?dept_no=E9'> ( E9 ）工科系           ES </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=N9'> ( N9 ）工科所           ES</a></div><div class='dept'><a target='_blank' href='qry001.php?dept_no=F0'> ( F0 ）能源學程         IBPE </a></div><div class='dept'><a target='_blank' href='qry001.php?dept_no=F1'> ( F1 ）系統系           SNME </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=P1'> ( P1 ）系統所           SYS</a></div><div class='dept'><a target='_blank' href='qry001.php?dept_no=F4'> ( F4 ）航太系           AA </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=P4'> ( P4 ）航太所           AA</a></div><div class='dept'><a target='_blank' href='qry001.php?dept_no=F5'> ( F5 ）環工系           EV </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=P5'> ( P5 ）環工所           EV</a></div><div class='dept'><a target='_blank' href='qry001.php?dept_no=F6'> ( F6 ）測量系           GM </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=P6'> ( P6 ）測量所           GM</a></div><div class='dept'><a target='_blank' href='qry001.php?dept_no=F9'> ( F9 ）醫工系           BME </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=P8'> ( P8 ）醫工所           BME</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=N0'> ( N0 ）工程管理         EM</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=NA'> ( NA ）海事所           OTMA</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=NB'> ( NB ）尖端所           icam</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=NC'> ( NC ）自災所           iNHM</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=Q4'> ( Q4 ）民航所           CA</a></div> </div></li>  <li><div class='theader' title='管理學院'>管理學院</div><div class='tbody'><div class='dept'><a target='_blank' href='qry001.php?dept_no=H1'> ( H1 ）會計系           ACC </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=R1'> ( R1 ）會計所           ACC</a></div><div class='dept'><a target='_blank' href='qry001.php?dept_no=H2'> ( H2 ）統計系           STAT </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=R2'> ( R2 ）統計所           STAT</a></div><div class='dept'><a target='_blank' href='qry001.php?dept_no=H3'> ( H3 ）工資系           IIM </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=R3'> ( R3 ）工資所           IIM</a></div><div class='dept'><a target='_blank' href='qry001.php?dept_no=H4'> ( H4 ）企管系           BA </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=R4'> ( R4 ）企管所           BA</a></div><div class='dept'><a target='_blank' href='qry001.php?dept_no=H5'> ( H5 ）交管系           TCM </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=R5'> ( R5 ）交管所           TCM</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=R0'> ( R0 ）ＥＭＢＡ         EMBA</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=R6'> ( R6 ）國企所           IB</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=R7'> ( R7 ）資管所           IM</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=R8'> ( R8 ）財金所           FIN</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=R9'> ( R9 ）電管所           TM</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=RA'> ( RA ）IIMBA            IMBA</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=RB'> ( RB ）體健所           PEHL</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=RD'> ( RD ）AMBA             AMBA</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=RZ'> ( RZ ）管理學院         COM</a></div> </div></li>  <li><div class='theader' title='醫學院'>醫學院</div><div class='tbody'><div class='dept'><a target='_blank' href='qry001.php?dept_no=I2'> ( I2 ）護理系           NURS </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=T2'> ( T2 ）護理所           NURS</a></div><div class='dept'><a target='_blank' href='qry001.php?dept_no=I3'> ( I3 ）醫技系           MLSB </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=T3'> ( T3 ）醫技所           MLSB</a></div><div class='dept'><a target='_blank' href='qry001.php?dept_no=I5'> ( I5 ）醫學系           MED </a></div><div class='dept'><a target='_blank' href='qry001.php?dept_no=I6'> ( I6 ）物治系           PT </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=T6'> ( T6 ）物治所           PT</a></div><div class='dept'><a target='_blank' href='qry001.php?dept_no=I7'> ( I7 ）職治系           OT </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=T7'> ( T7 ）職治所           OT</a></div><div class='dept'><a target='_blank' href='qry001.php?dept_no=I8'> ( I8 ）藥學系           DOPA </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=S0'> ( S0 ）醫學院           </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=S1'> ( S1 ）生化所           BIMB</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=S2'> ( S2 ）藥理所           PHAR</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=S3'> ( S3 ）生理所           PHSL</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=S4'> ( S4 ）微免所           MI</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=S5'> ( S5 ）基醫所           BMS</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=S6'> ( S6 ）臨藥科技         CPPS</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=S7'> ( S7 ）環醫所           EOH</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=S8'> ( S8 ）行醫所           BM</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=S9'> ( S9 ）臨醫所           CM</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=SA'> ( SA ）神經學程         TIGP</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=SB'> ( SB ）公衛在職         MPH</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=T1'> ( T1 ）分醫所           IMM</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=T4'> ( T4 ）口醫所           IOM</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=T8'> ( T8 ）公衛所           PH</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=T9'> ( T9 ）細胞所           CBA</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=TA'> ( TA ）健照所           AHS</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=TB'> ( TB ）藥生所           BS</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=TC'> ( TC ）老年所           GERO</a></div> </div></li>  <li><div class='theader' title='社會科學院'>社會科學院</div><div class='tbody'><div class='dept'><a target='_blank' href='qry001.php?dept_no=D2'> ( D2 ）法律系           LAW </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=U2'> ( U2 ）法律所           LAW</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=U6'> ( U6 ）科法所           LAWS</a></div><div class='dept'><a target='_blank' href='qry001.php?dept_no=D4'> ( D4 ）政治系           PS </a></div><div class='dept'><a target='_blank' href='qry001.php?dept_no=D5'> ( D5 ）經濟系           ECON </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=U5'> ( U5 ）經濟所           ECON</a></div><div class='dept'><a target='_blank' href='qry001.php?dept_no=D8'> ( D8 ）心理系           PSY </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=U7'> ( U7 ）心理所           CS</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=U1'> ( U1 ）政經所           PE</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=U3'> ( U3 ）教育所           EDU</a></div> </div></li>  <li><div class='theader' title='電機資訊學院'>電機資訊學院</div><div class='tbody'><div class='dept'><a target='_blank' href='qry001.php?dept_no=E2'> ( E2 ）電機系           EE </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=N2'> ( N2 ）電機所           EE</a></div><div class='dept'><a target='_blank' href='qry001.php?dept_no=F7'> ( F7 ）資訊系           CSIE </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=P7'> ( P7 ）資訊所           CSIE</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=ND'> ( ND ）多媒學程         </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=P9'> ( P9 ）製造所           IMIS</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=Q1'> ( Q1 ）微電所           IME</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=Q3'> ( Q3 ）電通所           CCE</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=Q5'> ( Q5 ）醫資所           IMI</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=Q6'> ( Q6 ）南科專           </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=Q7'> ( Q7 ）奈積學程         NICE</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=V6'> ( V6 ）電力產專         MPPE</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=V8'> ( V8 ）微波材料         </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=V9'> ( V9 ）電子材料         </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=VA'> ( VA ）電機產業         </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=VB'> ( VB ）光材產專         </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=VC'> ( VC ）光產產專         </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=VD'> ( VD ）微波元件         </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=VE'> ( VE ）電子產專         MPPE</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=VG'> ( VG ）靜電保護         </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=VH'> ( VH ）磁性材料         </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=VJ'> ( VJ ）電子材料　       </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=VK'> ( VK ）電機驅動         </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=VL'> ( VL ）微波電子         </a></div> </div></li>  <li><div class='theader' title='規劃與設計學院'>規劃與設計學院</div><div class='tbody'><div class='dept'><a target='_blank' href='qry001.php?dept_no=E7'> ( E7 ）建築系           ARCH </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=N7'> ( N7 ）建築所           ARCH</a></div><div class='dept'><a target='_blank' href='qry001.php?dept_no=F2'> ( F2 ）都計系           UP </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=P2'> ( P2 ）都計所           UP</a></div><div class='dept'><a target='_blank' href='qry001.php?dept_no=F3'> ( F3 ）工設系           ID </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=P3'> ( P3 ）工設所           ID</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=PA'> ( PA ）創意所           ICID</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=PB'> ( PB ）科藝學程         TART</a></div> </div></li>  <li><div class='theader' title='生物科學與科技學院'>生物科學與科技學院</div><div class='tbody'><div class='dept'><a target='_blank' href='qry001.php?dept_no=C5'> ( C5 ）生科系           LS </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=L5'> ( L5 ）生命所           LS</a></div><div class='dept'><a target='_blank' href='qry001.php?dept_no=C6'> ( C6 ）生技系           BBS </a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=L6'> ( L6 ）生科所           BIOT</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=L8'> ( L8 ）生多所           BIOD</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=Z0'> ( Z0 ）生科學院         BB</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=Z2'> ( Z2 ）生訊所           BIOI</a></div><div class='institute'><a target='_blank' href='qry001.php?dept_no=Z3'> ( Z3 ）熱植所           TPS</a></div> </div></li>
+</ul>
+
+<div id='result_set'></div>
+<style type="text/css">
+#dept_list{
+margin:0px;
+}
+#dept_list li{
+float:left;
+margin-bottom:10px;
+margin-right:9px;
+overflow: hidden;
+width:18%;
+border: #009900 solid 1px;
+margin:2px;
+width:150px;
+}
+#dept_list li .theader{
+<!--width:150px;-->
+height:25px;
+background: url(image/h4_bg_green.jpg) no-repeat top left;
+
+}
+#dept_list li .tbody{
+background-color:#FFFFFF;
+overflow: auto;
+scrollbar-base-color:white;
+scrollbar-face-color:#ffffff;
+scrollbar-darkshadow-color:#ffffff;
+font-size:12px;
+height:150pt;
+width:150px;
+}
+.dept a{
+color:blue;
+text-decoration:none;
+}
+.institute a{
+color:#442222;
+text-decoration:none;
+}
+</style>
+
+
+</div>
+
+<div id='f_keyword'>
+關鍵字查詢<input name='' value='' />
+<input id='b_submit' type='button' value='查詢'/>
+</div>
+
+<!--          (2)進階查詢   20130116 改底色    #9A77A6    -->
+<div id="f_general" style='display:none;background-color:#A4C8EC; '>
+<form id='qry02' name='qry02' action="qry002.php" method="get">
+<!--學年 -->
+<select id='g_syear' name='syear'>
+<option value="0104">104</option><option value="0103">103</option><option value="0102">102</option><option value="0101">101</option><option value="0100">100</option><option value="0099">99</option><option value="0098">98</option><option value="0097">97</option><option value="0096">96</option><option value="0095">95</option>   </select><label for='g_syear'>學年</label>
+<!--學期 -->
+<select id='g_sem' name='sem'>
+<option value='1' selected>1</option>
+</select><label for='g_sem'>學期課程查詢</label><br/>
+<!-- 依學系查詢 -->
+<fieldset><legend>系所查詢</legend>
+<!-- 學院 -->
+<div  style='color:#c95712;font-size: 18px; '>
+<b>(選課時段,請勿做大範圍的查詢)</b>
+</div>
+<label for='college_no'>學院</label>
+<select style='width:15em' name='college_no' id='college_no'>
+<option value=''>---全部---</option>
+<option value='A'>其他</option><option value='B'>不分學院</option><option value='C'>通識中心</option><option value='N'>文學院</option><option value='P'>理學院</option><option value='Q'>工學院</option><option value='R'>管理學院</option><option value='S'>醫學院</option><option value='U'>社會科學院</option><option value='V'>電機資訊學院</option><option value='W'>規劃與設計學院</option><option value='Z'>生物科學與科技學院</option>   </select><br/>
+<!-- 學系 -->
+<label for='dept_no'>系所</label>
+<select style='display:none' name='clone_dept_no' id='clone_dept_no'>
+</select>
+<select style='width:15em' name='dept_no' id='dept_no_g'>
+<option value='' class='filter_All'>全部系所</option>
+<optgroup class='filter_A' label="其他"><option class='filter_A' value='' >（A）全部系所</option><option class='filter_A' value="01">（ 01 ）夜共同科        01</option>                    <option class='filter_A' value="02">（ 02 ）夜體育組        02</option>                    <option class='filter_A' value="A2">（ A2 ）體育室          OPE</option>                    <option class='filter_A' value="03">（ 03 ）夜軍訓室        03</option>                    <option class='filter_A' value="A3">（ A3 ）軍訓室          MT</option>                    <option class='filter_A' value="A4">（ A4 ）師培中心        CTE</option>                    <option class='filter_A' value="A5">（ A5 ）計網中心        CN</option>                    <option class='filter_A' value="A6">（ A6 ）服務學習        SS</option>                    <option class='filter_A' value="09">（ 09 ）夜通識          </option>                    <option class='filter_A' value="AA">（ AA ）共同英授        </option>                    <option class='filter_A' value="AH">（ AH ）華語中心        CLC</option>                    </optgroup><optgroup class='filter_B' label="不分學院"><option class='filter_B' value='' >（B）全部系所</option><option class='filter_B' value="AN">（ AN ）不分系學程      CCEP</option>                    <option class='filter_B' value="C0">（ C0 ）科學班          </option>                    </optgroup><optgroup class='filter_C' label="通識中心"><option class='filter_C' value='' >（C）全部系所</option><option class='filter_C' value="A1">（ A1 ）外國語言        FLL</option>                    <option class='filter_C' value="A7">（ A7 ）基礎國文        CL</option>                    <option class='filter_C' value="A8">（ A8 ）人類文明        HIS</option>                    <option class='filter_C' value="A9">（ A9 ）通識中心        GE</option>                    <option class='filter_C' value="AB">（ AB ）公民素養        PE</option>                    <option class='filter_C' value="AC">（ AC ）健康知能        </option>                    <option class='filter_C' value="AD">（ AD ）哲學信仰        </option>                    <option class='filter_C' value="AE">（ AE ）美學藝術        </option>                    <option class='filter_C' value="AG">（ AG ）公民歷史        </option>                    </optgroup><optgroup class='filter_N' label="文學院"><option class='filter_N' value='' >（N）全部系所</option><option class='filter_N' value="11">（ 11 ）夜中文系        </option>                    <option class='filter_N' value="B1">（ B1 ）中文系          CL</option>                    <option class='filter_N' value="K1">（ K1 ）中文所          CL</option>                    <option class='filter_N' value="K6">（ K6 ）現文所          CL</option>                    <option class='filter_N' value="12">（ 12 ）夜外文系        </option>                    <option class='filter_N' value="B2">（ B2 ）外文系          FLL</option>                    <option class='filter_N' value="K2">（ K2 ）外文所          FLL</option>                    <option class='filter_N' value="13">（ 13 ）夜歷史系        </option>                    <option class='filter_N' value="B3">（ B3 ）歷史系          HIS</option>                    <option class='filter_N' value="K3">（ K3 ）歷史所          HIS</option>                    <option class='filter_N' value="B5">（ B5 ）台文系          TWL</option>                    <option class='filter_N' value="K5">（ K5 ）台文所          TWL</option>                    <option class='filter_N' value="K4">（ K4 ）藝術所          AS</option>                    <option class='filter_N' value="K7">（ K7 ）考古所          Arxe</option>                    </optgroup><optgroup class='filter_P' label="理學院"><option class='filter_P' value='' >（P）全部系所</option><option class='filter_P' value="21">（ 21 ）夜應數系        </option>                    <option class='filter_P' value="22">（ 22 ）進數學系        </option>                    <option class='filter_P' value="C1">（ C1 ）數學系          MATH</option>                    <option class='filter_P' value="L1">（ L1 ）應數所          MATH</option>                    <option class='filter_P' value="C2">（ C2 ）物理系          PHYS</option>                    <option class='filter_P' value="L2">（ L2 ）物理所          PHYS</option>                    <option class='filter_P' value="23">（ 23 ）夜應化系        </option>                    <option class='filter_P' value="24">（ 24 ）進化學系        </option>                    <option class='filter_P' value="C3">（ C3 ）化學系          CHEM</option>                    <option class='filter_P' value="L3">（ L3 ）化學所          CHEM</option>                    <option class='filter_P' value="C4">（ C4 ）地科系          EARS</option>                    <option class='filter_P' value="L4">（ L4 ）地科所          EARS</option>                    <option class='filter_P' value="F8">（ F8 ）光電系          DPS</option>                    <option class='filter_P' value="L7">（ L7 ）光電所          DPS</option>                    <option class='filter_P' value="L9">（ L9 ）衛地所          SIEE</option>                    <option class='filter_P' value="LA">（ LA ）電漿所          SAPS</option>                    <option class='filter_P' value="VF">（ VF ）發光二極        </option>                    </optgroup><optgroup class='filter_Q' label="工學院"><option class='filter_Q' value='' >（Q）全部系所</option><option class='filter_Q' value="E0">（ E0 ）工學院          COE</option>                    <option class='filter_Q' value="31">（ 31 ）夜機械系        </option>                    <option class='filter_Q' value="E1">（ E1 ）機械系          ME</option>                    <option class='filter_Q' value="N1">（ N1 ）機械所          ME</option>                    <option class='filter_Q' value="E3">（ E3 ）化工系          CHE</option>                    <option class='filter_Q' value="N3">（ N3 ）化工所          CHE</option>                    <option class='filter_Q' value="E4">（ E4 ）資源系          RE</option>                    <option class='filter_Q' value="N4">（ N4 ）資源所          RE</option>                    <option class='filter_Q' value="E5">（ E5 ）材料系          MSE</option>                    <option class='filter_Q' value="N5">（ N5 ）材料所          MSE</option>                    <option class='filter_Q' value="E6">（ E6 ）土木系          CE</option>                    <option class='filter_Q' value="N6">（ N6 ）土木所          CE</option>                    <option class='filter_Q' value="38">（ 38 ）夜水利系        </option>                    <option class='filter_Q' value="E8">（ E8 ）水利系          HOE</option>                    <option class='filter_Q' value="N8">（ N8 ）水利所          HOE</option>                    <option class='filter_Q' value="E9">（ E9 ）工科系          ES</option>                    <option class='filter_Q' value="N9">（ N9 ）工科所          ES</option>                    <option class='filter_Q' value="F0">（ F0 ）能源學程        IBPE</option>                    <option class='filter_Q' value="F1">（ F1 ）系統系          SNME</option>                    <option class='filter_Q' value="P1">（ P1 ）系統所          SYS</option>                    <option class='filter_Q' value="F4">（ F4 ）航太系          AA</option>                    <option class='filter_Q' value="P4">（ P4 ）航太所          AA</option>                    <option class='filter_Q' value="F5">（ F5 ）環工系          EV</option>                    <option class='filter_Q' value="P5">（ P5 ）環工所          EV</option>                    <option class='filter_Q' value="F6">（ F6 ）測量系          GM</option>                    <option class='filter_Q' value="P6">（ P6 ）測量所          GM</option>                    <option class='filter_Q' value="F9">（ F9 ）醫工系          BME</option>                    <option class='filter_Q' value="P8">（ P8 ）醫工所          BME</option>                    <option class='filter_Q' value="N0">（ N0 ）工程管理        EM</option>                    <option class='filter_Q' value="NA">（ NA ）海事所          OTMA</option>                    <option class='filter_Q' value="NB">（ NB ）尖端所          icam</option>                    <option class='filter_Q' value="NC">（ NC ）自災所          iNHM</option>                    <option class='filter_Q' value="Q2">（ Q2 ）奈微所          NME</option>                    <option class='filter_Q' value="Q4">（ Q4 ）民航所          CA</option>                    </optgroup><optgroup class='filter_R' label="管理學院"><option class='filter_R' value='' >（R）全部系所</option><option class='filter_R' value="51">（ 51 ）夜會計系        </option>                    <option class='filter_R' value="H1">（ H1 ）會計系          ACC</option>                    <option class='filter_R' value="R1">（ R1 ）會計所          ACC</option>                    <option class='filter_R' value="52">（ 52 ）夜統計系        </option>                    <option class='filter_R' value="H2">（ H2 ）統計系          STAT</option>                    <option class='filter_R' value="R2">（ R2 ）統計所          STAT</option>                    <option class='filter_R' value="53">（ 53 ）夜工管系        </option>                    <option class='filter_R' value="56">（ 56 ）工管職          </option>                    <option class='filter_R' value="H3">（ H3 ）工資系          IIM</option>                    <option class='filter_R' value="R3">（ R3 ）工資所          IIM</option>                    <option class='filter_R' value="54">（ 54 ）夜企管系        </option>                    <option class='filter_R' value="57">（ 57 ）企管職          </option>                    <option class='filter_R' value="H4">（ H4 ）企管系          BA</option>                    <option class='filter_R' value="R4">（ R4 ）企管所          BA</option>                    <option class='filter_R' value="55">（ 55 ）夜交管系        </option>                    <option class='filter_R' value="H5">（ H5 ）交管系          TCM</option>                    <option class='filter_R' value="R5">（ R5 ）交管所          TCM</option>                    <option class='filter_R' value="R0">（ R0 ）ＥＭＢＡ        EMBA</option>                    <option class='filter_R' value="R6">（ R6 ）國企所          IB</option>                    <option class='filter_R' value="R7">（ R7 ）資管所          IM</option>                    <option class='filter_R' value="R8">（ R8 ）財金所          FIN</option>                    <option class='filter_R' value="R9">（ R9 ）電管所          TM</option>                    <option class='filter_R' value="RA">（ RA ）IIMBA           IMBA</option>                    <option class='filter_R' value="RB">（ RB ）體健所          PEHL</option>                    <option class='filter_R' value="RC">（ RC ）國經所          </option>                    <option class='filter_R' value="RD">（ RD ）AMBA            AMBA</option>                    <option class='filter_R' value="RZ">（ RZ ）管理學院        COM</option>                    </optgroup><optgroup class='filter_S' label="醫學院"><option class='filter_S' value='' >（S）全部系所</option><option class='filter_S' value="I1">（ I1 ）後醫系          </option>                    <option class='filter_S' value="I2">（ I2 ）護理系          NURS</option>                    <option class='filter_S' value="T2">（ T2 ）護理所          NURS</option>                    <option class='filter_S' value="I3">（ I3 ）醫技系          MLSB</option>                    <option class='filter_S' value="T3">（ T3 ）醫技所          MLSB</option>                    <option class='filter_S' value="I4">（ I4 ）復健系          </option>                    <option class='filter_S' value="I5">（ I5 ）醫學系          MED</option>                    <option class='filter_S' value="I6">（ I6 ）物治系          PT</option>                    <option class='filter_S' value="T6">（ T6 ）物治所          PT</option>                    <option class='filter_S' value="I7">（ I7 ）職治系          OT</option>                    <option class='filter_S' value="T7">（ T7 ）職治所          OT</option>                    <option class='filter_S' value="I8">（ I8 ）藥學系          DOPA</option>                    <option class='filter_S' value="S0">（ S0 ）醫學院          </option>                    <option class='filter_S' value="S1">（ S1 ）生化所          BIMB</option>                    <option class='filter_S' value="S2">（ S2 ）藥理所          PHAR</option>                    <option class='filter_S' value="S3">（ S3 ）生理所          PHSL</option>                    <option class='filter_S' value="S4">（ S4 ）微免所          MI</option>                    <option class='filter_S' value="S5">（ S5 ）基醫所          BMS</option>                    <option class='filter_S' value="S6">（ S6 ）臨藥科技        CPPS</option>                    <option class='filter_S' value="S7">（ S7 ）環醫所          EOH</option>                    <option class='filter_S' value="S8">（ S8 ）行醫所          BM</option>                    <option class='filter_S' value="S9">（ S9 ）臨醫所          CM</option>                    <option class='filter_S' value="SA">（ SA ）神經學程        TIGP</option>                    <option class='filter_S' value="SB">（ SB ）公衛在職        MPH</option>                    <option class='filter_S' value="T1">（ T1 ）分醫所          IMM</option>                    <option class='filter_S' value="T4">（ T4 ）口醫所          IOM</option>                    <option class='filter_S' value="T8">（ T8 ）公衛所          PH</option>                    <option class='filter_S' value="T9">（ T9 ）細胞所          CBA</option>                    <option class='filter_S' value="TA">（ TA ）健照所          AHS</option>                    <option class='filter_S' value="TB">（ TB ）藥生所          BS</option>                    <option class='filter_S' value="TC">（ TC ）老年所          GERO</option>                    </optgroup><optgroup class='filter_U' label="社會科學院"><option class='filter_U' value='' >（U）全部系所</option><option class='filter_U' value="D2">（ D2 ）法律系          LAW</option>                    <option class='filter_U' value="U2">（ U2 ）法律所          LAW</option>                    <option class='filter_U' value="U6">（ U6 ）科法所          LAWS</option>                    <option class='filter_U' value="D4">（ D4 ）政治系          PS</option>                    <option class='filter_U' value="D5">（ D5 ）經濟系          ECON</option>                    <option class='filter_U' value="U5">（ U5 ）經濟所          ECON</option>                    <option class='filter_U' value="D8">（ D8 ）心理系          PSY</option>                    <option class='filter_U' value="U7">（ U7 ）心理所          CS</option>                    <option class='filter_U' value="U1">（ U1 ）政經所          PE</option>                    <option class='filter_U' value="U3">（ U3 ）教育所          EDU</option>                    </optgroup><optgroup class='filter_V' label="電機資訊學院"><option class='filter_V' value='' >（V）全部系所</option><option class='filter_V' value="32">（ 32 ）夜電機系        </option>                    <option class='filter_V' value="E2">（ E2 ）電機系          EE</option>                    <option class='filter_V' value="N2">（ N2 ）電機所          EE</option>                    <option class='filter_V' value="F7">（ F7 ）資訊系          CSIE</option>                    <option class='filter_V' value="P7">（ P7 ）資訊所          CSIE</option>                    <option class='filter_V' value="ND">（ ND ）多媒學程        </option>                    <option class='filter_V' value="P9">（ P9 ）製造所          IMIS</option>                    <option class='filter_V' value="Q1">（ Q1 ）微電所          IME</option>                    <option class='filter_V' value="Q3">（ Q3 ）電通所          CCE</option>                    <option class='filter_V' value="Q5">（ Q5 ）醫資所          IMI</option>                    <option class='filter_V' value="Q6">（ Q6 ）南科專          </option>                    <option class='filter_V' value="Q7">（ Q7 ）奈積學程        NICE</option>                    <option class='filter_V' value="V1">（ V1 ）半導體產        </option>                    <option class='filter_V' value="V2">（ V2 ）積電產專        </option>                    <option class='filter_V' value="V3">（ V3 ）電通產專        </option>                    <option class='filter_V' value="V4">（ V4 ）製程產專        </option>                    <option class='filter_V' value="V5">（ V5 ）光電產專        </option>                    <option class='filter_V' value="V6">（ V6 ）電力產專        MPPE</option>                    <option class='filter_V' value="V7">（ V7 ）半導製電        </option>                    <option class='filter_V' value="V8">（ V8 ）微波材料        </option>                    <option class='filter_V' value="V9">（ V9 ）電子材料        </option>                    <option class='filter_V' value="VA">（ VA ）電機產業        </option>                    <option class='filter_V' value="VB">（ VB ）光材產專        </option>                    <option class='filter_V' value="VC">（ VC ）光產產專        </option>                    <option class='filter_V' value="VD">（ VD ）微波元件        </option>                    <option class='filter_V' value="VE">（ VE ）電子產專        MPPE</option>                    <option class='filter_V' value="VG">（ VG ）靜電保護        </option>                    <option class='filter_V' value="VH">（ VH ）磁性材料        </option>                    <option class='filter_V' value="VJ">（ VJ ）電子材料　      </option>                    <option class='filter_V' value="VK">（ VK ）電機驅動        </option>                    <option class='filter_V' value="VL">（ VL ）微波電子        </option>                    </optgroup><optgroup class='filter_W' label="規劃與設計學院"><option class='filter_W' value='' >（W）全部系所</option><option class='filter_W' value="E7">（ E7 ）建築系          ARCH</option>                    <option class='filter_W' value="N7">（ N7 ）建築所          ARCH</option>                    <option class='filter_W' value="F2">（ F2 ）都計系          UP</option>                    <option class='filter_W' value="P2">（ P2 ）都計所          UP</option>                    <option class='filter_W' value="F3">（ F3 ）工設系          ID</option>                    <option class='filter_W' value="P3">（ P3 ）工設所          ID</option>                    <option class='filter_W' value="PA">（ PA ）創意所          ICID</option>                    <option class='filter_W' value="PB">（ PB ）科藝學程        TART</option>                    </optgroup><optgroup class='filter_Z' label="生物科學與科技學院"><option class='filter_Z' value='' >（Z）全部系所</option><option class='filter_Z' value="C5">（ C5 ）生科系          LS</option>                    <option class='filter_Z' value="L5">（ L5 ）生命所          LS</option>                    <option class='filter_Z' value="C6">（ C6 ）生技系          BBS</option>                    <option class='filter_Z' value="L6">（ L6 ）生科所          BIOT</option>                    <option class='filter_Z' value="L8">（ L8 ）生多所          BIOD</option>                    <option class='filter_Z' value="Z0">（ Z0 ）生科學院        BB</option>                    <option class='filter_Z' value="Z1">（ Z1 ）生物訊息        </option>                    <option class='filter_Z' value="Z2">（ Z2 ）生訊所          BIOI</option>                    <option class='filter_Z' value="Z3">（ Z3 ）熱植所          TPS</option>                    </optgroup><optgroup class='filter_' label=""><option class='filter_' value='' >（）全部系所</option><option class='filter_' value="ZZZ">（ ZZZ ）</option>          </select><br/>
+<!-- 年級 -->
+<label for='stu_year'>年級</label>
+<select name='stu_year' id='stu_year' disabled>
+<option value=""></option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+</select>
+<!-- 英語授課 -->
+<label for='isEng'>英語授課</label>
+<input type='checkbox' name='isEng' id='isEng' value=''><br/>
+</fieldset>
+
+<!-- 依課程時間查詢 -->
+<fieldset><legend>時間查詢</legend>
+<!-- 星期 -->
+<label for='clweek'>星期</label>
+<select name='clweek'>
+<option value="0"></option><option value="1">星期一</option><option value="2">星期二</option><option value="3">星期三</option><option value="4">星期四</option><option value="5">星期五</option><option value="6">星期六</option><option value="7">星期日</option>   </select><br/>
+<!-- 節次 -->
+節次:<input type='checkbox' name='sec1'/>0&nbsp;<input type='checkbox' name='sec2'/>1&nbsp;<input type='checkbox' name='sec3'/>2&nbsp;<input type='checkbox' name='sec4'/>3&nbsp;<input type='checkbox' name='sec5'/>4&nbsp;<input type='checkbox' name='sec6'/>N&nbsp;<input type='checkbox' name='sec7'/>5&nbsp;<input type='checkbox' name='sec8'/>6&nbsp;<input type='checkbox' name='sec9'/>7&nbsp;<input type='checkbox' name='sec10'/>8&nbsp;<input type='checkbox' name='sec11'/>9&nbsp;<input type='checkbox' name='sec12'/>A&nbsp;<input type='checkbox' name='sec13'/>B&nbsp;<input type='checkbox' name='sec14'/>C&nbsp;<input type='checkbox' name='sec15'/>D&nbsp;<input type='checkbox' name='sec16'/>E&nbsp;   </fieldset>
+<fieldset><legend>關鍵字查詢</legend>
+<select id='o_selections' onchange="document.getElementById('txtName').name = this.value">
+<option value="co_name" onclick="document.getElementById('txtName').name = 'co_name'">課程名稱<div style="font-size:10px;">(連結課程地圖)</div></option>
+<option value="ta_name" onclick="document.getElementById('txtName').name = 'ta_name'">教師姓名<div style="font-size:10px;color:#006699;">*:主負責老師</div></option>
+</select>
+<input id='txtName' name='co_name' type='text' />
+</fieldset>
+<hr/>
+<input type='hidden' name='lang' id='lang' value='zh_tw' />
+<input type='submit' value='查詢' />
+<input type='reset' value='重設' />
+<input id='close_qry02' name='close_qry02' type='button' value='取消'/>
+</form>
+</div>
+
+<!--通識 -->
+<div id="f_general_courses" style='display:none'>
+<form name='qry03' id='qry03' action="qry003.php" method="get">
+<input name="dept_no" type="hidden" value="A9" />
+<label for="domain">通識類別</label>
+<select id='domain' name='domain'>
+<option value=''>---全部---</option>
+
+
+<option value="">                                </option>
+
+
+
+
+
+<option value="D">D  社會科學                      </option>
+
+
+<option value="E">E  科際整合                      </option>
+
+
+
+
+<option value="H">H  國際語言                      </option>
+
+
+
+<option value="J">J  基礎國文                      </option>
+
+
+<option value="K">K  融合通識                      </option>
+
+
+
+
+
+
+<option value="P">P  人文學                        </option>
+
+
+<option value="Q">Q  公民與歷史                    </option>
+
+
+<option value="R">R  哲學與藝術                    </option>
+
+
+<option value="S">S  自然與工程科學                </option>
+
+
+<option value="T">T  生命科學與健康                </option>
+
+</select>
+<input type='submit' value='查詢'>
+<input id='close_qry03' name='close_qry03' type='button' value='取消'/>
+</form>
+</div>
+<!-- 最新消息 Dialog -->
+<div id='newsDialog'></div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-12316087-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body>
+</html>
+
