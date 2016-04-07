@@ -1,0 +1,413 @@
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta name="DC.Title" content="公司及分公司基本資料查詢" />
+<meta name="DC.Creator" content="" />
+<meta name="DC.Subject" content="" />
+<meta name="DC.Description" content="" />
+<meta name="DC.Contributor" content="" />
+<meta name="DC.Type" content="網頁" />
+<meta name="DC.Format" content="Microsoft Internet Explorer" />
+<meta name="DC.Source" content="" />
+<meta name="DC.Language" content="繁體中文" />
+<meta name="DC.Coverage" content="" />
+<meta name="DC.Publisher" content="經濟部" />
+<meta name="DC.Date" content="2008-05-13" />
+<meta name="DC.Identifier" content="URL"/>
+<meta name="DC.Relation" content="" />
+<meta name="DC.Rights" content="" />
+<meta name="Category.Theme" content="500"/>
+<meta name="Category.Cake" content="700"/>
+<meta name="Category.Service" content="620"/>
+<meta name="Keywords" content="財政經濟, 經濟貿易, 公司設立" />
+<meta http-equiv="Content-Type" content="text/html; charset=BIG5">
+<title>公司及分公司基本資料查詢</title>
+
+<link rel="Stylesheet" type="text/css" href='/pub/css/pub.css'>
+<style type="text/css">
+<!--
+A:link {color:#993300;}
+A:visited {color:#336699;}
+A:hover {color:#003399;}
+A:active {color:#666666;}
+-->
+</style>
+
+<script src='/pub/js/checkValue.js'></script>
+<noscript> </noscript>
+<script language="JavaScript" src='/pub/js/utilities.js'></script>
+<noscript> </noscript>
+<script type="text/javascript" language="javascript">
+<!--
+  // 共用的，只要指定method名稱即可
+  function postAction(method) {
+    document.forms[0].method.value = method;
+    document.forms[0].submit();
+  }
+
+  function querychk() {
+    if(document.forms[0].useEUC.value == "Y")
+	  completeForm();
+    
+    
+    var validate = true ;
+    //輸入統編
+    if ( document.forms[0].selQueryType[3].checked ){
+	  var queryStr = document.forms[0].queryStr.value = document.forms[0].queryStr.value.replace(/[\s　'"]+/g, "");
+      validate = checkBanNo( queryStr ) ;
+      document.forms[0].queryStr.focus();
+    }
+    //輸入地址
+    else if ( document.forms[0].selQueryType[2].checked  ){
+      var cmpyAddr = document.forms[0].cmpyAddr.value = document.forms[0].cmpyAddr.value.replace(/[\s　'"]+/g, "");
+      validate = true;
+      //沒有選 縣市
+      if(document.getElementsByName('cityCode1')[0].selectedIndex == 0){ 
+        alert("請點選縣市");
+        validate = false;
+      }
+      //沒有選  鄉鎮市區
+      else if(document.getElementsByName('cityCode2')[0].selectedIndex == 0){ 
+        alert("請點選鄉鎮市區");
+        validate = false;
+      }
+      //沒有填 公司地址
+      else if(cmpyAddr == ""){
+      	alert("請輸入公司地址");
+      	validate = false;      
+      }                 
+    }
+    //輸入公司名稱 (中文或英文)
+    else {	
+      var queryStr = document.forms[0].queryStr.value = document.forms[0].queryStr.value.replace(/[\s　'"]+/g, "");  
+      if ( queryStr == "" ){
+        alert('請輸入查詢資料');
+        validate = false ;
+      }
+    }
+    
+    if ( validate ){
+      if(document.forms[0].selQueryType[3].checked == true && document.forms[0].selCmpyType[1].checked == true)
+      {
+        document.forms[0].brBanNo.value = queryStr;
+        document.forms[0].action = "/pub/cmpy/branInfoListAction.do";
+        document.forms[0].method.value = "query";
+        document.forms[0].submit();
+      }else{
+        postAction('query');
+      }
+    }
+  }
+
+  // 跳至第X頁
+  function goPage() {
+    document.forms[0].method.value = "goPage";
+    document.forms[0].submit();
+  }
+  // body keydown....
+  function enter() {
+    if(event.keyCode==13){
+      //modified by girlie 20081124
+      //cases of otherEnterFlag:
+      //是用鍵盤選  '首頁' 再按 'enter'鍵  ||
+      //是用鍵盤選  '罕用字輸入說明 ' 再按 'enter'鍵 ||
+      //是用鍵盤選   罕用字輸入條件方式    再按 'enter'鍵
+
+      //是用'enter'鍵  去submit page && not otherEnterFlag cases
+      if ( document.forms[0].submitData!=null && document.getElementsByName('otherEnterFlag')[0].value == "false"){
+        document.forms[0].submitData.focus();
+      }
+    }
+  }
+  
+  function showValue(objEle){
+    if(objEle.value == 2) //點選 分公司 radio
+    {
+      document.forms[0].selCmpyType[0].checked = false; //公司 radio
+      document.forms[0].selCmpyType[1].checked = true;  //分公司 radio
+
+      document.forms[0].selQueryType[0].disabled = true; //公司名稱(中文) radio
+      document.forms[0].selQueryType[1].disabled = true; //外國公司名稱(英文)radio
+      document.forms[0].selQueryType[2].disabled = true; //公司地址 radio
+      document.forms[0].selQueryType[3].checked = true;  //統一編號 radio
+
+      document.forms[0].method.value = "hideEUC";
+      document.forms[0].submit();
+    }
+    if(objEle.value == 1) //點選 公司 radio
+    {
+   	  document.forms[0].selCmpyType[0].checked = true; //公司 radio
+      document.forms[0].selCmpyType[1].checked = false;//分公司 radio
+
+      document.forms[0].selQueryType[0].disabled = false; //公司名稱(中文) radio
+      document.forms[0].selQueryType[0].checked = true;
+      document.forms[0].selQueryType[1].disabled = false; //外國公司名稱(英文)radio
+      document.forms[0].selQueryType[2].disabled = false; //公司地址 radio
+
+      document.forms[0].method.value = "showEUC";
+      document.forms[0].submit();
+    }
+  }
+
+/**
+ * added by girlie 20080807
+ * refresh the page to display or hide euc appletText
+ * depending on the value of selQueryType
+ */
+  function showEUC(){
+    document.forms[0].selQueryType[0].checked = true;
+    document.forms[0].selQueryType[1].checked = false;
+    document.forms[0].selQueryType[2].checked = false;
+	document.forms[0].selQueryType[3].checked = false;
+	
+	document.forms[0].method.value = "showEUC";
+    document.forms[0].submit();
+  }
+  function hideEUC(selectedQtype){
+    document.forms[0].selQueryType[0].checked = false;
+    document.forms[0].selQueryType[1].checked = false;
+    document.forms[0].selQueryType[2].checked = false;
+	document.forms[0].selQueryType[3].checked = false;
+	
+    document.forms[0].selQueryType[selectedQtype].checked = true;
+
+    document.forms[0].method.value = "hideEUC";
+    document.forms[0].submit();
+  }
+
+  function completeForm() {
+    document.getElementsByName('queryStr')[0].value=document.queryApplet.getText();
+  }
+  //to remove javascript warning at IE browser. modified by girlie 20080821
+  function clearQuery() {
+    document.getElementsByName('queryStr')[0].value="";
+
+    if(document.getElementById('queryApplet')!=null)
+   	  document.getElementsByName('queryApplet')[0].setText("");
+  }
+  //A+等級:H309204compliance added by girlie 20081124
+  function otherEnter() {
+    document.getElementsByName('otherEnterFlag')[0].value="true";
+  }
+  function NOTotherEnter() {
+    document.getElementsByName('otherEnterFlag')[0].value="false";
+  }
+//-->
+</script>
+
+<script type="text/javascript">
+//20090423 added by girlie: force resubmit page on back button hit
+onload=function(){
+
+var backbutton=document.getElementById("refreshed");
+ if(backbutton!=null)
+ {
+	if(backbutton.value=="no")
+	{
+		backbutton.value="yes";
+	}
+	else{
+	     document.forms[0].method.value = "first";
+	     document.forms[0].submit();
+	}
+ }
+
+ var queryString = 'null' == ''|| 'null' == 'null'  ? '' : 'null';
+ if (queryString != null && queryString != '' && queryString != 'null') {
+	 //document.getElementById("queryStr").value = queryString;
+	 document.forms[0].queryStr.value = queryString;
+	 document.forms[0].selQueryType[3].checked = true;  //統一編號 radio
+ }
+}
+</script>
+<noscript> </noscript>
+</head>
+<body class="nomargin" onkeydown="enter();">
+<form name="CmpyInfoListForm" method="post" action="/pub/cmpy/cmpyInfoListAction.do">
+
+<input type="hidden" name="method" value="query">
+<!-- A+等級:H309204compliance gohomeFlag field added by girlie 20081121-->
+<input type="hidden" name="otherEnterFlag" value="false">
+
+<input type="hidden" name="useEUC" value='N' />
+<input type="hidden" name="isShowEUC" value='N' />
+
+
+<input type="hidden" name="queryKey" value='sed5728'/>
+<!--最上方 Header***-->
+
+
+
+
+<!-- header -->
+<TABLE cellSpacing='0' cellPadding='0' width="100%" border='0' id="table1"
+ summary="This is the cmpy header links.">
+<CAPTION> </CAPTION> 
+<TBODY>  
+  <TR>
+  <TH height="44" id="a1" axis="upperLinks" class="content_light" align="left">
+	<img border="0" src='/pub/images/location.gif' width="22" height="18" alt="目前所在位置">
+	目前所在位置：<a accesskey="C" href="http://gcis.nat.gov.tw/mainNew/" target="_top" tabindex="1" onfocus="otherEnter();" onblur="NOTotherEnter();">首頁</a> 〉
+	<a href="http://gcis.nat.gov.tw/main/classNewAction.do?method=list&pkGcisClassNew=4" target="_top" tabindex="2" onfocus="otherEnter();" onblur="NOTotherEnter();">商工登記資料公示查詢系統</a> 〉
+	<a href="http://gcis.nat.gov.tw/main/subclassNewAction.do?method=getFile&pk=23" target="_top" tabindex="3" onfocus="otherEnter();" onblur="NOTotherEnter();"> 公司登記資料查詢</a> 
+    
+    <hr size="1" class="skyblueLn">
+  </TH>
+  </TR>
+</TBODY>
+</TABLE>
+
+
+
+<!-- 查詢明細 -->
+
+  <TABLE width="100%" border="0" cellpadding="0" cellspacing="0" class="bgTael"
+  summary="Search Condition Details">
+  <CAPTION> </CAPTION>
+    <TR>
+      <TH scope="col" width="36" height="27" valign="top"><img src='/pub/images/search_pencil_trans.gif' width="24" height="22" alt="公司及分公司基本資料查詢"></TH>
+      <TH scope="col" align="left" class="content_th15">經濟部商業司─公司及分公司基本資料查詢</TH>
+      <TH scope="col" class="content_light" align="right">查詢字串：
+        <font color="#FF0000" style="font-weight:normal">
+        
+          04541302
+
+        
+        
+        </font> |
+        <font color="#FF0000" style="font-weight:normal"><a href='/pub/cmpy/cmpyInfoListAction.do?method=go2NoPaging'>瀏覽全部</a></font> |
+        <font color="#FF0000" style="font-weight:normal"><a href='/pub/cmpy/cmpyInfoListAction.do?method=first'>重新查詢</a></font> |
+        <font color="#FF0000" style="font-weight:normal">花費秒數：0.016</font>
+      </TH>
+    </TR>
+  </TABLE>
+
+  <table width="100%" border="0" cellspacing="0" cellpadding="0" class="asLine"
+  summary="This is a dark green line.">
+  <caption> </caption>
+    <tr>
+      <th scope="col" valign="top" width="1" height="1"> </th>
+    </tr>
+  </table>
+
+  <hr size="1" class="skyblueLn">
+  <TABLE width="100%" border="0" cellpadding="0" cellspacing="1" class="w-13c"
+  summary="Search Result headings.">
+  <CAPTION> </CAPTION>
+    <TR bgcolor="#C6E1F4">
+       <TH scope="col" width="7%" align="center">序號</TH>
+       <TH scope="col" width="12%" align="center">統一編號</TH>
+       <TH scope="col" width="27%" align="center">公司名稱</TH>
+       <TH scope="col" width="15%" align="center">登記機關</TH>
+       <TH scope="col" width="15%" align="center">公司狀況</TH>
+       <TH scope="col" width="12%" align="center">核准設立日期</TH>
+       <TH scope="col" width="12%" align="center">核准變更日期</TH>
+    </TR>
+  </TABLE>
+  <TABLE width="100%" border="0" cellpadding="0" cellspacing="1" class="normalTable"
+  summary="Search Result iterate tr List.">
+  <caption> </caption>
+  
+    
+      
+      <TR>
+        <TD class="fieldlight" width="7%" align="center" >
+          1
+        </TD>
+        <TD class="fieldlight" width="12%" align="center" >
+          <a href="/pub/cmpy/cmpyInfoAction.do?method=detail&banNo=04541302">
+          04541302
+
+          </a>
+        </TD>
+        <!-- 判斷有中文名稱就秀出 -->
+        <TD class="w-13c" width="27%" align="center" >
+          <a href="/pub/cmpy/cmpyInfoAction.do?method=detail&banNo=04541302">
+            鴻海精密工業股份有限公司
+
+            <!-- 判斷有英文名稱就秀出 -->
+            
+          </a>
+        </TD>
+        <TD class="fieldlight" width="15%" align="center" >
+          經濟部商業司
+
+        </TD>
+        <TD class="fieldlight" width="15%" align="center" >
+          
+          
+          
+          
+          
+          
+          
+          	核准設立
+&nbsp;
+          
+          
+        </TD>
+        <TD class="fieldlight" width="12%" align="center" >
+          0630220
+        </TD>
+        <TD class="fieldlight" width="12%" align="center" >
+          1041211
+        </TD>
+      </TR>
+    
+  </TABLE>
+
+<!-- 換頁 -->
+  <TABLE width="100%" class="normalTable" border="0" cellpadding="0" cellspacing="1" id='page_1' style="display:block">
+    <TR>
+      <TD align="center" width="15%">
+          <font size="3" color="blue">
+       	     共&nbsp;1&nbsp;筆&nbsp;
+          1&nbsp;頁&nbsp;
+          </font>
+      </TD>
+      <TD align="center" width="70%">
+          <a href="javascript:postAction('firstPage');">
+            <img alt="第一頁" src='/pub/images/arrow_first.gif' />&nbsp;&nbsp;
+          </a>
+          <a href="javascript:postAction('previousPage');">
+            <img alt="上一頁" src='/pub/images/arrow_left.gif' />&nbsp;&nbsp;
+          </a>
+		     至第<select name="goPage" onchange="postAction('goPage');"><option value="1" selected="selected">1</option></select>頁&nbsp;&nbsp;&nbsp;
+          <a href="javascript:postAction('nextPage');">
+            <img alt="下一頁" src='/pub/images/arrow_right.gif' />&nbsp;&nbsp;
+          </a>
+          <a href="javascript:postAction('lastPage');">
+            <img alt="最後一頁" src='/pub/images/arrow_last.gif' />&nbsp;&nbsp;
+          </a>
+      </TD>
+      <TD align="center" width="15%">
+          <font size="3" color="blue">
+		      第 1 頁
+		  </font>
+      </TD>
+    </TR>
+  </TABLE>
+
+
+<!-- 查無資料訊息 -->
+
+
+<noscript>
+  <DIV><DT class='w-13ared'>
+	<br>看到此訊息表示您的瀏覽器不支援Java Script語法，請檢查您瀏覽器的設定，或安裝的工具列、防毒軟體是否關閉java script功能，未支援java script功能將無法使用本系統。<br>
+  </DT></DIV>
+</noscript>
+<!-- 查詢規則 提示語  -->
+<!--font size="2" color="#0000FF">使用本查詢項目時系統可能會請您安裝Java[TM] Plug-in以正確顯示罕用字，<br><a href="java-cmex.html" target="_blank"><font color="#FF0000">詳情請見說明</font></a>。</font-->
+
+</form>
+</body>
+
+</html>
