@@ -1,0 +1,10 @@
+example:
+        python gciscrawler.py
+
+Description
+        gciscrawler.py -- Main program to crawl web page.
+        imgcrawler.py -- A program to crawl code image.
+        recog.py -- A program to recognize code image.
+        model -- A folder including model trained by images in base directory.
+        base -- image from 0 to 9
+        ml -- A folder including files to training model

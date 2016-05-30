@@ -1,0 +1,2 @@
+genTrain.py -- Generate training data from trainSet.
+train.sh -- Learning a model from trainSet.
